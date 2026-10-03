@@ -532,7 +532,7 @@ section.flush { padding: 0; }
 .big-line { text-align: center; }
 .signup.photo-band.v-bottom.big-line { min-height: calc(min(86vh, 820px) - 50px); }
 .big-line > .band-bg { top: -50px; height: calc(100% + 50px); }
-.big-line .script.one-line { font-size: calc((min(100vw, var(--max)) - 2 * var(--gutter)) / 11.8); line-height: 1.25; filter: brightness(1.2) saturate(1.1);
+.big-line .script.one-line { font-size: calc((min(100vw, var(--max)) - 2 * var(--gutter)) / 11.8); line-height: 1.25; filter: brightness(1.32) saturate(1.35);
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .05 0 0 0 0 .02 0 0 0 0 .04 0 0 0 .9 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 160px 160px,
     radial-gradient(ellipse 9% 90% at 8% 50%, rgba(226,96,110,.9), transparent 70%),
@@ -570,3 +570,7 @@ section.flush { padding: 0; }
 .quotes-bg.mime-wide::after { background: linear-gradient(90deg, rgba(7,11,26,.5) 0%, rgba(7,11,26,.2) 35%, rgba(7,11,26,0) 50%); }
 .quotes-bg.mime-wide .wrap > * { max-width: 30rem; }
 @media (max-width: 900px) { .quotes-bg.mime-wide { min-height: 640px; } .quotes-bg.mime-wide > img { object-position: 72% center; } .quotes-bg.mime-wide::after { background: rgba(7,11,26,.55); } }
+
+/* Landing: tighten the gap between the carousel and the mailing band */
+section.before-band { padding-bottom: clamp(16px, 2vw, 28px); }
+.before-band + .signup.photo-band.at-top { padding-top: clamp(16px, 2.5vw, 32px); }
