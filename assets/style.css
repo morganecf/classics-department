@@ -1,0 +1,165 @@
+/* Classics Department — site styles
+   Edit the tokens below to retheme the whole site. */
+
+:root {
+  --paper: #f4efe6;
+  --paper-2: #ebe3d5;
+  --ink: #1d1a17;
+  --ink-soft: #5a524a;
+  --accent: #8a2b1f;      /* oxblood */
+  --rule: #cfc4b2;
+
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --max: 1120px;
+  --gutter: clamp(16px, 4vw, 40px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #15130f;
+    --paper-2: #1f1c17;
+    --ink: #efe8dc;
+    --ink-soft: #a89e90;
+    --accent: #d0654f;
+    --rule: #3a342c;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: var(--gutter); top: 8px; background: var(--ink); color: var(--paper); padding: 8px 12px; z-index: 10; }
+
+/* ---------- Header ---------- */
+
+.site-header { border-bottom: 1px solid var(--rule); }
+.site-header .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; min-height: 72px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem; font-weight: 600; letter-spacing: .01em;
+  text-decoration: none;
+}
+.logo span { color: var(--accent); }
+
+.nav { display: flex; gap: clamp(14px, 3vw, 32px); }
+.nav a {
+  text-decoration: none; font-size: .78rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase;
+}
+.nav a[aria-current="page"] { color: var(--accent); }
+
+.nav-toggle { display: none; background: none; border: 1px solid var(--rule); color: var(--ink);
+  font: inherit; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase;
+  padding: 6px 12px; cursor: pointer; }
+
+@media (max-width: 680px) {
+  .nav-toggle { display: block; }
+  .nav { display: none; position: absolute; top: 72px; left: 0; right: 0;
+    flex-direction: column; gap: 0; background: var(--paper);
+    border-bottom: 1px solid var(--rule); z-index: 5; }
+  .nav.open { display: flex; }
+  .nav a { padding: 14px var(--gutter); border-top: 1px solid var(--rule); }
+  .site-header { position: relative; }
+}
+
+/* ---------- Type ---------- */
+
+.eyebrow {
+  font-size: .75rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--accent); margin: 0 0 12px;
+}
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.08; margin: 0 0 .4em; }
+h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); letter-spacing: -.01em; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+h3 { font-size: 1.6rem; }
+
+.lede { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--ink-soft); max-width: 40em; }
+
+.placeholder { background: color-mix(in srgb, var(--accent) 12%, transparent); outline: 1px dashed var(--accent); }
+
+/* ---------- Sections ---------- */
+
+section { padding: clamp(56px, 9vw, 112px) 0; }
+section + section { border-top: 1px solid var(--rule); }
+
+.hero { padding-top: clamp(64px, 12vw, 140px); }
+.hero h1 em { font-style: italic; color: var(--accent); }
+
+.btn {
+  display: inline-block; margin-top: 24px; padding: 12px 22px;
+  background: var(--ink); color: var(--paper); text-decoration: none;
+  font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+}
+.btn:hover { background: var(--accent); color: var(--paper); }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); margin-left: 8px; }
+.btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Feature (current production) */
+.feature { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 5vw, 64px); align-items: center; }
+.feature .poster { aspect-ratio: 4 / 5; background: var(--paper-2); display: grid; place-items: center;
+  color: var(--ink-soft); font-size: .85rem; text-align: center; padding: 16px; }
+.meta { list-style: none; padding: 0; margin: 20px 0 0; border-top: 1px solid var(--rule); }
+.meta li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: .95rem; }
+.meta li span:first-child { color: var(--ink-soft); }
+@media (max-width: 760px) { .feature { grid-template-columns: 1fr; } }
+
+/* Production list — styled like a course catalogue */
+.catalogue { list-style: none; margin: 32px 0 0; padding: 0; border-top: 2px solid var(--ink); }
+.catalogue li { display: grid; grid-template-columns: 110px 1fr auto; gap: 16px 24px; align-items: baseline;
+  padding: 20px 0; border-bottom: 1px solid var(--rule); }
+.catalogue .code { font-size: .75rem; font-weight: 600; letter-spacing: .14em; color: var(--accent); }
+.catalogue h3 { margin: 0; font-size: 1.5rem; }
+.catalogue p { margin: 4px 0 0; color: var(--ink-soft); font-size: .95rem; }
+.catalogue .when { font-size: .85rem; color: var(--ink-soft); white-space: nowrap; }
+@media (max-width: 600px) {
+  .catalogue li { grid-template-columns: 1fr; gap: 4px; }
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 64px); }
+@media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+
+.people { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 32px; margin-top: 32px; }
+.people .photo { aspect-ratio: 1; background: var(--paper-2); margin-bottom: 12px; }
+.people h3 { font-size: 1.3rem; margin: 0; }
+.people p { margin: 2px 0 0; color: var(--ink-soft); font-size: .9rem; }
+
+/* Forms */
+form { display: grid; gap: 16px; max-width: 520px; }
+label { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+input, textarea {
+  width: 100%; margin-top: 6px; padding: 12px; font: inherit; color: var(--ink);
+  background: transparent; border: 1px solid var(--rule); border-radius: 0;
+}
+input:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+button.btn { border: 0; cursor: pointer; justify-self: start; }
+
+/* ---------- Footer ---------- */
+
+.site-footer { border-top: 1px solid var(--rule); padding: 40px 0 56px; font-size: .9rem; color: var(--ink-soft); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; }
+.site-footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
