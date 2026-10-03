@@ -281,16 +281,16 @@ a.email:hover { color: var(--gold-lit); }
 /* ---------- Project panels ---------- */
 
 .panels { list-style: none; margin: 0; padding: 0; }
-.panel { position: relative; display: grid; align-items: end; min-height: min(62vh, 580px); overflow: hidden; text-decoration: none; isolation: isolate; }
+.panel { position: relative; display: grid; align-items: end; min-height: min(72vh, 680px); overflow: hidden; text-decoration: none; isolation: isolate; }
 .panel > img, .panel > .placeholder-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1.2s ease; }
 .panel::after { content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.5) 100%); }
 .panel h2, .panel p { text-shadow: 0 2px 24px rgba(0,0,0,.55); }
 .panel:hover > img { transform: scale(1.03); }
 .panel .wrap { width: 100%; padding-bottom: clamp(40px, 7vw, 88px); }
-.panel h2 { font-size: clamp(2.3rem, 7vw, 6rem); text-transform: uppercase; letter-spacing: .01em; line-height: .95; margin-bottom: .2em; transition: color .3s; }
-.panel p { font-size: clamp(1.05rem, 1.8vw, 1.35rem); max-width: 36em; margin: 0; color: var(--bone); }
-.panel:hover h2 { color: var(--alien); }
+.panel h2 { font-size: clamp(2.6rem, 8.2vw, 7.2rem); text-transform: uppercase; letter-spacing: .01em; line-height: .95; margin-bottom: .2em; transition: color .3s; }
+.panel p { font-size: clamp(1.15rem, 2.1vw, 1.65rem); max-width: 36em; margin: 0; color: var(--bone); }
+.panel:hover h2 { color: var(--gold-lit); }
 
 
 /* Stand-in artwork until a photo exists */
@@ -433,7 +433,7 @@ a.email:hover { color: var(--gold-lit); }
   padding-top: clamp(96px, 12vw, 160px); padding-bottom: clamp(96px, 12vw, 160px); }
 .photo-band > .band-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .photo-band::after { content: ""; position: absolute; inset: 0; z-index: -1;
-  background: radial-gradient(ellipse at 50% 50%, rgba(7,11,26,.62), rgba(7,11,26,.86) 75%),
+  background: radial-gradient(ellipse at 50% 50%, rgba(7,11,26,.22), rgba(7,11,26,.66) 80%),
               linear-gradient(180deg, var(--night) 0%, transparent 18%, transparent 82%, var(--night) 100%); }
 .photo-band .muted { color: var(--bone); }
 
@@ -451,3 +451,9 @@ hr.divider { border: 0; height: 1px; background: var(--rule); margin: 28px 0; }
 /* Projects page opens straight on the panels; the first one is banner height */
 section.flush { padding: 0; }
 .panels li:first-child .panel { min-height: var(--banner-h); }
+
+/* Photo numbers on the landing carousel, for easy reference */
+.carousel a { position: relative; }
+.carousel .num { position: absolute; left: 10px; top: 10px; min-width: 28px; padding: 3px 7px; text-align: center;
+  font-family: var(--font-label); font-size: .75rem; letter-spacing: .1em; color: var(--bone);
+  background: rgba(7,11,26,.72); border-radius: 3px; }
