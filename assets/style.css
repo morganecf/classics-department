@@ -117,9 +117,11 @@ section { padding: clamp(64px, 10vw, 128px) 0; }
   transition: background .2s, color .2s, border-color .2s;
 }
 .btn { border: 1px solid transparent; border-image: linear-gradient(105deg, #b48530, #f3dc98 25%, #c99b42 45%, #fbe9b0 60%, #a97c2e) 1;
-  color: var(--gold); background: var(--leaf); background-size: 140px 140px, 100% 100%;
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600; }
-.btn:hover { color: var(--gold); filter: brightness(1.25); box-shadow: inset 0 0 0 100vmax rgba(217,178,94,.08); }
+  color: var(--gold); background: transparent; font-weight: 600; transition: background-color .3s; }
+.btn > span { background: var(--leaf); background-size: 140px 140px, 100% 100%;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+/* hover: the body takes on a very faint dark lavender */
+.btn:hover { color: var(--gold); background-color: rgba(160, 140, 235, .1); }
 .btn[aria-disabled="true"] { opacity: .55; pointer-events: none; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 
@@ -439,3 +441,13 @@ a.email:hover { color: var(--gold-lit); }
 .actions.even { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
 .actions.even .btn { text-align: center; white-space: nowrap; padding-inline: 18px; }
 @media (max-width: 1200px) { .actions.even { grid-auto-flow: row; } }
+
+/* Thin rule used as a section divider inside text */
+hr.divider { border: 0; height: 1px; background: var(--rule); margin: 28px 0; }
+
+/* Hidden from view but still read by screen readers and search engines */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Projects page opens straight on the panels; the first one is banner height */
+section.flush { padding: 0; }
+.panels li:first-child .panel { min-height: var(--banner-h); }
