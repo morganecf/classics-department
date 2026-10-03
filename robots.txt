@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.classics-department.com/sitemap.xml

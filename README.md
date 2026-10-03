@@ -1,30 +1,30 @@
-# Classics Department
+# The Classics Department
 
-Website for Classics Department, a theater production company. It replaces the Squarespace site at classics-department.com.
+Website for The Classics Department, events from beyond the veil. It replaces the Squarespace site at classics-department.com.
 
-Plain static HTML/CSS with no build step, so it can be hosted anywhere (GitHub Pages, Netlify, Cloudflare Pages).
+Plain static HTML and CSS with no build step. It can be hosted on any static host (Cloudflare Pages, Netlify, GitHub Pages).
 
-## Pages
+## Structure
 
-| File | Page |
+Each page is a folder with an `index.html`, so the old Squarespace URLs keep working:
+
+| URL | Page |
 |---|---|
-| `index.html` | Home: hero, current production, mailing list |
-| `productions.html` | Current and past productions |
-| `about.html` | Mission and company members |
-| `contact.html` | Contact form and email |
-| `404.html` | Not-found page |
+| `/` | Home |
+| `/projects/` | Project index |
+| `/upcoming/` | Psychomagic 9 |
+| `/p9-program/` | Psychomagic 9 cast and creative team |
+| `/406am/`, `/kinski/`, `/bet-on-love/`, `/lovebot-omega/`, `/time-capsule/` | Project pages |
+| `/services/` | Event production services |
+| `/about/` | Company members |
+| `/contact/` | Contact |
+| `/sign-up/` | Mailing list |
 
-Shared styles are in `assets/style.css`. Change the colour and font tokens at the top of that file to retheme the whole site. Images go in `assets/img/`.
-
-## Placeholders
-
-Anything still to be replaced with real content has `class="placeholder"`, which shows it with a dashed red outline. To find what's left:
-
-```sh
-grep -n placeholder *.html
-```
-
-Remove the class once the real content is in.
+- `assets/style.css` holds every style. Colours and fonts are variables at the top of the file.
+- `assets/site.js` runs the mobile menu and the photo-gallery lightbox.
+- `assets/img/` holds the images, converted to WebP and capped at 1600px.
+- `s/` holds the PDFs, at the same paths they had on Squarespace.
+- `_redirects` sends old URLs (`/about-new`, `/cart`) to their new homes. Netlify and Cloudflare Pages read this file.
 
 ## Preview locally
 
@@ -32,3 +32,7 @@ Remove the class once the real content is in.
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
+
+## Deploying
+
+On Cloudflare Pages or Netlify, connect this repository with no build command and `/` as the output directory.
