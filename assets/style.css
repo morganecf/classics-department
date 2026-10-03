@@ -24,6 +24,8 @@
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --max: 1240px;
+  /* Every page's first section (photo banner or title block) is this tall, so nothing jumps between pages */
+  --banner-h: clamp(460px, calc(100vh - 68px), 880px);
   --gutter: clamp(16px, 4vw, 48px);
   color-scheme: dark;
 }
@@ -121,21 +123,20 @@ section { padding: clamp(64px, 10vw, 128px) 0; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 
 /* Hero */
-.hero { position: relative; min-height: min(92vh, 900px); display: grid; align-items: end; padding: 0; overflow: hidden; isolation: isolate; }
+.hero { position: relative; height: var(--banner-h); min-height: min-content; display: grid; align-items: end; padding: 0; overflow: hidden; isolation: isolate; }
 .hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(180deg, rgba(10,15,36,.25) 0%, rgba(10,15,36,.15) 40%, rgba(10,15,36,.93) 100%); }
 .hero .wrap { width: 100%; padding-bottom: clamp(48px, 8vw, 96px); }
 .hero h1 { margin-bottom: .2em; }
 .hero .tagline { font-family: var(--font-label); font-size: clamp(.85rem, 1.6vw, 1.1rem); letter-spacing: .3em; text-transform: uppercase; }
-.hero.short { min-height: min(70vh, 640px); }
 .hero > img.focus-right { object-position: 62% 35%; }
-/* Show the whole photo: the hero takes the image's own proportions */
-.hero.full-image { min-height: 0; aspect-ratio: 3 / 2; max-height: none; }
-.hero.full-image > img { object-position: center top; }
-@media (max-width: 700px) { .hero.full-image { aspect-ratio: auto; min-height: 78vh; } }
+/* Keep the top of the photo in view */
+.hero.top > img, .hero > img.top { object-position: center top; }
 
-.page-head { padding-bottom: clamp(32px, 5vw, 56px); }
+.page-head { min-height: var(--banner-h); display: grid; align-content: end; padding: 0 0 clamp(48px, 8vw, 96px); }
+.page-head > .wrap, .hero > .wrap { width: 100%; }
+.page-head.centered { align-content: center; text-align: center; padding-top: clamp(48px, 8vw, 96px); }
 
 /* Split layouts */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
@@ -260,8 +261,8 @@ a.email:hover { color: var(--gold-lit); }
 .carousel img { height: 100%; width: auto; max-width: none; transition: filter .4s; }
 .carousel a:hover img { filter: brightness(1.12); }
 .carousel.large { --car-h: min(72vh, 680px); }
-.carousel.medium { --car-h: min(52vh, 420px); }
-@media (max-width: 600px) { .carousel.large { --car-h: 60vh; } .carousel.medium { --car-h: 300px; } }
+.carousel.medium { --car-h: min(62vh, 540px); }
+@media (max-width: 600px) { .carousel.large { --car-h: 60vh; } .carousel.medium { --car-h: 340px; } }
 .car-btn {
   position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--bone) 50%, transparent); background: color-mix(in srgb, var(--night) 70%, transparent);
@@ -324,3 +325,17 @@ a.email:hover { color: var(--gold-lit); }
   right: max(-420px, -38vw); top: 50%; transform: translateY(-46%) rotate(-8deg);
   background: url("img/enneagram.svg") center / contain no-repeat; opacity: .12;
 }
+
+/* Mailing-list band: romantic script heading */
+:root { --font-script: "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive; }
+.signup .script, .script { font-family: var(--font-script); font-weight: 400; text-transform: none; letter-spacing: 0;
+  font-size: clamp(2.9rem, 7.4vw, 6.4rem); line-height: 1.12; max-width: 13em; margin-inline: auto; }
+
+/* Lynchian blue velvet curtain behind "Don't see what you want?" */
+.velvet { background:
+  linear-gradient(180deg, rgba(10,15,36,.55), rgba(10,15,36,.35) 40%, rgba(10,15,36,.6)),
+  url("img/velvet.webp") center / cover no-repeat, var(--night); }
+
+/* Large two-up photo grid (MIRI book launch) */
+.gallery.two { columns: 2 340px; column-gap: 16px; }
+.gallery.two a { margin-bottom: 16px; }
