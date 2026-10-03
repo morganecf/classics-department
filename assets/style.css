@@ -470,3 +470,21 @@ section.flush { padding: 0; }
 .photo-band::after { background:
   linear-gradient(180deg, rgba(7,11,26,.78) 0%, rgba(7,11,26,.25) 26%, rgba(7,11,26,.12) 55%, rgba(7,11,26,.7) 88%, var(--night) 100%) !important; }
 .script.one-line { white-space: nowrap; max-width: none; font-size: clamp(1.7rem, 6.2vw, 5.6rem); }
+
+/* Banner with a deeper shade, for brighter-looking overlay text */
+.hero.dim::after { background: linear-gradient(180deg, rgba(7,11,26,.45) 0%, rgba(7,11,26,.35) 40%, rgba(7,11,26,.95) 100%); }
+
+/* Audience quotes over a photo (LoveBot / Omega) */
+.quotes-bg { min-height: min(90vh, 860px); padding: clamp(64px, 9vw, 112px) 0; }
+.quotes-bg > img { object-position: 75% 35%; }
+.quotes-bg::after { background: linear-gradient(90deg, rgba(7,11,26,.92) 0%, rgba(7,11,26,.78) 42%, rgba(7,11,26,.15) 78%); }
+.quotes.stack { grid-template-columns: 1fr; max-width: 34em; gap: 28px; margin-top: 28px; }
+.quotes-bg .quote p { max-width: none; }
+@media (max-width: 760px) { .quotes-bg::after { background: rgba(7,11,26,.78); } }
+.quotes-bg.on-right .wrap { display: grid; justify-items: end; }
+.quotes-bg.on-right .wrap > * { width: min(100%, 560px); }
+.quotes-bg.on-right > img { object-position: 30% 35%; }
+.quotes-bg.on-right::after { background: linear-gradient(270deg, rgba(7,11,26,.92) 0%, rgba(7,11,26,.78) 42%, rgba(7,11,26,.15) 78%); }
+.quotes-bg .quotes.stack { max-width: 30em; }
+@media (max-width: 760px) { .quotes-bg.on-right::after { background: rgba(7,11,26,.78); } .quotes-bg.on-right .wrap { justify-items: start; } }
+.quotes-bg.on-right .quotes.stack { max-width: none; }
