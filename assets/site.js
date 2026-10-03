@@ -47,3 +47,20 @@ document.querySelectorAll('[data-lightbox]').forEach((gallery) => {
     box.querySelector('.close').focus();
   }));
 });
+
+// Carousel arrows: scroll by most of a screen, hide an arrow at either end.
+document.querySelectorAll('.carousel').forEach((car) => {
+  const track = car.querySelector('.track');
+  const prev = car.querySelector('.prev');
+  const next = car.querySelector('.next');
+  const update = () => {
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+  };
+  prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.8 }));
+  next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.8 }));
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  track.querySelectorAll('img').forEach((i) => i.addEventListener('load', update));
+  update();
+});
