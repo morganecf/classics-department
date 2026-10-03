@@ -208,7 +208,7 @@ section { padding: clamp(64px, 10vw, 128px) 0; }
 /* Emblem tiles (services) */
 .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 48px; }
 .tile { background: var(--night); padding: clamp(28px, 4vw, 44px); }
-.tile img { width: 112px; height: 112px; margin-bottom: 24px; image-rendering: pixelated; }
+.tile img { width: 112px; height: 112px; margin-bottom: 24px; }
 .tile h3 { margin-bottom: .5em; }
 .tile p { color: var(--mist); margin: 0; }
 
@@ -290,7 +290,8 @@ a.email:hover { color: var(--gold-lit); }
 .panel .wrap { width: 100%; padding-bottom: clamp(40px, 7vw, 88px); }
 .panel h2 { font-size: clamp(2.6rem, 8.2vw, 7.2rem); text-transform: uppercase; letter-spacing: .01em; line-height: .95; margin-bottom: .2em; transition: color .3s; }
 .panel p { font-size: clamp(1.15rem, 2.1vw, 1.65rem); max-width: 36em; margin: 0; color: var(--bone); }
-.panel:hover h2 { color: var(--gold-lit); }
+.panel:hover h2 { color: var(--gold); background: var(--leaf); background-size: 140px 140px, 100% 100%;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none; }
 
 
 /* Stand-in artwork until a photo exists */
@@ -316,7 +317,7 @@ a.email:hover { color: var(--gold-lit); }
 
 /* Quote set over a full-width photo */
 /* The whole photo shows; the quote sits in the dark space above the dancer */
-.photo-quote { position: relative; display: grid; align-items: start; aspect-ratio: 3 / 2; max-height: 1000px; overflow: hidden; isolation: isolate;
+.photo-quote { position: relative; display: grid; align-items: start; aspect-ratio: 16 / 9; max-height: 900px; overflow: hidden; isolation: isolate;
   padding-top: clamp(40px, 5vw, 72px); }
 .photo-quote > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; z-index: -2; }
 .photo-quote::after { content: ""; position: absolute; inset: 0; z-index: -1;
@@ -339,10 +340,10 @@ a.email:hover { color: var(--gold-lit); }
   color: #8e2232;
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .05 0 0 0 0 .02 0 0 0 0 .04 0 0 0 .9 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 160px 160px,
-    radial-gradient(ellipse 30% 70% at 20% 45%, rgba(178,58,72,.85), transparent 70%),
-    radial-gradient(ellipse 26% 80% at 60% 55%, rgba(160,44,60,.7), transparent 70%),
-    radial-gradient(ellipse 20% 60% at 86% 40%, rgba(170,52,66,.65), transparent 70%),
-    linear-gradient(90deg, #4a0d17 0%, #7a1626 14%, #861a2b 50%, #7a1626 86%, #4a0d17 100%);
+    radial-gradient(ellipse 30% 70% at 20% 45%, rgba(214,86,100,.85), transparent 70%),
+    radial-gradient(ellipse 26% 80% at 60% 55%, rgba(200,70,86,.7), transparent 70%),
+    radial-gradient(ellipse 20% 60% at 86% 40%, rgba(208,78,92,.65), transparent 70%),
+    linear-gradient(90deg, #7c1e2c 0%, #a52a3c 14%, #b3304a 50%, #a52a3c 86%, #7c1e2c 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   font-size: clamp(3rem, 7.6vw, 6.6rem); line-height: 1.15; max-width: 13em; margin-inline: auto; }
 
@@ -400,8 +401,8 @@ a.email:hover { color: var(--gold-lit); }
   color: #e0a050;
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .05 0 0 0 0 .02 0 0 0 0 .04 0 0 0 .9 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 160px 160px,
-    linear-gradient(90deg, rgba(7,11,26,.55) 0%, transparent 12%, transparent 88%, rgba(7,11,26,.55) 100%),
-    linear-gradient(100deg, #c8573a 0%, #db8a3a 18%, #e6bb55 34%, #a9b85e 50%, #5f9c8a 66%, #5a78b8 82%, #8a62b0 100%);
+    linear-gradient(90deg, rgba(7,11,26,.3) 0%, transparent 10%, transparent 90%, rgba(7,11,26,.3) 100%),
+    linear-gradient(100deg, #f07a52 0%, #f5a94e 18%, #f7d36e 34%, #c8dc7a 50%, #7fcbb0 66%, #7fa2f0 82%, #b98ae6 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 
@@ -457,3 +458,15 @@ section.flush { padding: 0; }
 .carousel .num { position: absolute; left: 10px; top: 10px; min-width: 28px; padding: 3px 7px; text-align: center;
   font-family: var(--font-label); font-size: .75rem; letter-spacing: .1em; color: var(--bone);
   background: rgba(7,11,26,.72); border-radius: 3px; }
+
+/* Landing banner: keep the top of the performer's head in frame */
+.hero > img.head-in { object-position: 50% 12%; }
+
+/* Mailing-list band: the line sits above the girl's head, the button below her face */
+.signup.photo-band { display: grid; grid-template-rows: auto 1fr auto; min-height: min(92vh, 860px);
+  padding-top: clamp(40px, 6vw, 72px); padding-bottom: clamp(40px, 6vw, 72px); }
+.photo-band > .band-bg { object-position: 50% 62%; }
+.photo-band .band-bottom { grid-row: 3; }
+.photo-band::after { background:
+  linear-gradient(180deg, rgba(7,11,26,.78) 0%, rgba(7,11,26,.25) 26%, rgba(7,11,26,.12) 55%, rgba(7,11,26,.7) 88%, var(--night) 100%) !important; }
+.script.one-line { white-space: nowrap; max-width: none; font-size: clamp(1.7rem, 6.2vw, 5.6rem); }
