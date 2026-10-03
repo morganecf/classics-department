@@ -532,13 +532,34 @@ section.flush { padding: 0; }
 .big-line { text-align: center; }
 .signup.photo-band.v-bottom.big-line { min-height: calc(min(86vh, 820px) - 50px); }
 .big-line > .band-bg { top: -50px; height: calc(100% + 50px); }
-.big-line .script.one-line { font-size: calc((min(100vw, var(--max)) - 2 * var(--gutter)) / 11.8); line-height: 1.25; filter: brightness(1.45) saturate(1.1); }
+.big-line .script.one-line { font-size: calc((min(100vw, var(--max)) - 2 * var(--gutter)) / 11.8); line-height: 1.25; filter: brightness(1.2) saturate(1.1);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .05 0 0 0 0 .02 0 0 0 0 .04 0 0 0 .9 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 160px 160px,
+    radial-gradient(ellipse 9% 90% at 8% 50%, rgba(226,96,110,.9), transparent 70%),
+    radial-gradient(ellipse 12% 80% at 27% 40%, rgba(70,10,22,.85), transparent 70%),
+    radial-gradient(ellipse 10% 90% at 44% 55%, rgba(222,92,106,.8), transparent 70%),
+    radial-gradient(ellipse 14% 80% at 62% 45%, rgba(66,8,20,.85), transparent 70%),
+    radial-gradient(ellipse 9% 90% at 78% 55%, rgba(214,84,98,.8), transparent 70%),
+    radial-gradient(ellipse 10% 80% at 93% 45%, rgba(72,12,24,.8), transparent 70%),
+    linear-gradient(90deg, #6e1a27, #94263a 30%, #8a2234 60%, #9a2a3e);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .big-line .actions { justify-content: center; }
 /* Option 2: the same, at the top of the photo */
 .signup.photo-band.v-bottom.at-top { align-items: start; }
-.photo-band.v-bottom.at-top::after { background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.6) 14%, rgba(7,11,26,.2) 42%, rgba(7,11,26,.2) 75%, var(--night) 100%); }
-.at-top > .band-bg { object-position: 50% 30%; }
+.photo-band.v-bottom.at-top::after { background: linear-gradient(180deg, var(--night) 0%, var(--night) clamp(110px, 16vw, 230px), rgba(7,11,26,.25) calc(clamp(110px, 16vw, 230px) + 180px), rgba(7,11,26,.2) 75%, var(--night) 100%); }
+.at-top > .band-bg { top: clamp(110px, 16vw, 230px); height: calc(100% - clamp(110px, 16vw, 230px)); object-position: 50% 0%; }
+.signup.photo-band.v-bottom.at-top { min-height: min(96vh, 900px); }
 
 /* 4:06 AM: the lead audience quote */
-.lead-quote { max-width: 18em; margin-bottom: 8px; }
-.lead-quote p { font-size: clamp(2rem, 4.6vw, 3.8rem); }
+.lead-quote { max-width: none; margin-bottom: 8px; }
+.quote.big.lead-quote p { font-size: calc((min(100vw, var(--max)) - 2 * var(--gutter)) / 16.3); line-height: 1.1; max-width: none; }
+@media (min-width: 761px) { .quote.big.lead-quote p { white-space: nowrap; } }
+@media (max-width: 760px) { .quote.big.lead-quote p { font-size: clamp(1.9rem, 8vw, 3rem); } }
+
+/* Dating Show quotes beside the full mime photo */
+.mime-split .split { align-items: center; margin-top: 24px; }
+.mime-split .quotes.stack { margin-top: 0; }
+.mime-split img { width: 100%; height: auto; border-radius: 3px; }
+.mime-split .split { grid-template-columns: 1fr 1.35fr; }
+@media (max-width: 820px) { .mime-split .split { grid-template-columns: 1fr; } }
+.mime-split .quotes .quote { border-top: 0; padding-top: 0; }
