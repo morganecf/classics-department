@@ -415,3 +415,13 @@ a.email:hover { color: var(--gold-lit); }
   .panel > img { transform: translate(var(--tx, 0), var(--ty, 0)) scale(var(--z, 1)); }
   .panel:hover > img { transform: translate(var(--tx, 0), var(--ty, 0)) scale(calc(var(--z, 1) * 1.03)); }
 }
+
+/* Golden Calf: justified photo rows (each photo keeps its proportions; rows share a height) */
+.jgrid { display: flex; flex-wrap: wrap; gap: 28px 10px; --row: clamp(170px, 19vw, 280px); }
+.jgrid::after { content: ""; flex-grow: 1e4; }
+.jgrid figure { margin: 0; flex: var(--ar) 1 calc(var(--ar) * var(--row)); }
+.jgrid a { display: block; overflow: hidden; border-radius: 3px; background: var(--night-2); }
+.jgrid img { width: 100%; height: auto; aspect-ratio: var(--ar); object-fit: cover; transition: transform .6s ease; }
+.jgrid a:hover img { transform: scale(1.03); }
+.jgrid figcaption { margin-top: 8px; font-family: var(--font-label); font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; color: var(--alien); }
+@media (max-width: 600px) { .jgrid { --row: 150px; gap: 20px 8px; } }
