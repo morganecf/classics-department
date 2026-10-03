@@ -11,9 +11,12 @@
 
   --violet: #4437c9;       /* brand violet, from the emblems */
   --violet-lit: #8b80ff;   /* violet for text on black */
-  --rose: #e92668;         /* brand pink */
-  --rose-lit: #ff5c93;
-  --gold: #e8b84a;
+  --gold: #d9b25e;         /* primary accent: gold leaf */
+  --gold-lit: #f2d68f;
+  --gold-deep: #a97c2e;
+  /* Gold leaf: a burnished gradient with a fine speckled texture laid over it */
+  --leaf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .22 0 0 0 0 .06 0 0 0 .7 -.18'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(105deg, #b48530 0%, #f3dc98 18%, #c99b42 34%, #fbe9b0 50%, #b8873a 66%, #ecd08a 82%, #a97c2e 100%);
   --alien: #a8f0ff;        /* secondary accent: pale alien blue */
 
   --font-display: "Cormorant Garamond", "Cormorant", Garamond, Georgia, serif;
@@ -40,9 +43,15 @@ body {
 }
 
 img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; text-decoration-color: var(--rose); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-a:hover { color: var(--rose-lit); }
-::selection { background: var(--rose); color: var(--night); }
+a { color: inherit; text-decoration-color: var(--gold); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+a:hover { color: var(--gold-lit); }
+::selection { background: var(--gold); color: var(--night); }
+
+/* Gold-leaf text: the gradient and texture show through the letters */
+.label:not(.alien), .nav a[aria-current="page"] {
+  color: var(--gold); background: var(--leaf); background-size: 140px 140px, 100% 100%;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
 
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 .narrow { max-width: 760px; }
@@ -65,7 +74,7 @@ a:hover { color: var(--rose-lit); }
 
 .nav { display: flex; gap: clamp(16px, 2.6vw, 36px); }
 .nav a { font-family: var(--font-label); font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; padding: 6px 0; }
-.nav a[aria-current="page"] { color: var(--rose-lit); }
+
 
 .nav-toggle { display: none; background: none; border: 1px solid var(--rule); color: var(--bone); font-family: var(--font-label);
   font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; padding: 8px 14px; cursor: pointer; }
@@ -80,7 +89,7 @@ a:hover { color: var(--rose-lit); }
 
 /* ---------- Type ---------- */
 
-.label { font-family: var(--font-label); font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; color: var(--rose-lit); margin: 0 0 16px; }
+.label { font-family: var(--font-label); font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; margin: 0 0 16px; }
 .label.alien { color: var(--alien); }
 
 h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; line-height: 1.05; margin: 0 0 .45em; text-wrap: balance; }
@@ -106,8 +115,8 @@ section { padding: clamp(64px, 10vw, 128px) 0; }
   transition: background .2s, color .2s, border-color .2s;
 }
 .btn:hover { background: var(--bone); color: var(--night); }
-.btn.solid { background: var(--rose); border-color: var(--rose); color: #fff; }
-.btn.solid:hover { background: var(--rose-lit); border-color: var(--rose-lit); }
+.btn.solid { background: var(--leaf); background-size: 140px 140px, 100% 100%; border-color: var(--gold); color: var(--night); font-weight: 600; }
+.btn.solid:hover { background: var(--gold-lit); border-color: var(--gold-lit); color: var(--night); }
 .btn[aria-disabled="true"] { opacity: .55; pointer-events: none; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 
@@ -170,7 +179,7 @@ section { padding: clamp(64px, 10vw, 128px) 0; }
 .project-list .thumb { aspect-ratio: 3 / 2; overflow: hidden; background: var(--night-2); }
 .project-list .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .project-list a:hover .thumb img { transform: scale(1.04); }
-.project-list a:hover h2 { color: var(--rose-lit); }
+.project-list a:hover h2 { color: var(--gold-lit); }
 .project-list h2 { text-transform: uppercase; transition: color .2s; }
 .project-list p { color: var(--mist); margin: 0; }
 .project-list .more { display: inline-block; margin-top: 20px; font-family: var(--font-label); font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; color: var(--bone); }
@@ -231,7 +240,7 @@ section { padding: clamp(64px, 10vw, 128px) 0; }
 .site-footer nav { display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--font-label); font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; }
 .site-footer nav a { text-decoration: none; }
 a.email { color: var(--violet-lit); text-decoration: underline; text-decoration-color: currentColor; }
-a.email:hover { color: var(--bone); }
+a.email:hover { color: var(--gold-lit); }
 
 /* ---------- Home ---------- */
 
@@ -290,3 +299,28 @@ a.email:hover { color: var(--bone); }
 .serif-prose p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.2rem, 1.7vw, 1.4rem); line-height: 1.45; }
 .serif-prose h2, .serif-prose h3 { color: var(--alien); }
 .gallery.four { columns: 4 220px; }
+
+/* ---------- Psychomagic 9 ---------- */
+
+/* The Nine: always three across, tighter, taller cards with softly rounded corners */
+.cards.nine { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(9px, 1.4vw, 16px); }
+.cards.nine .card .ph { aspect-ratio: 3 / 4; border-radius: 3px; }
+.cards.nine .card h3 { margin-top: 4px; }
+@media (max-width: 600px) { .cards.nine { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Quote set over a full-width photo */
+.photo-quote { position: relative; display: grid; align-items: center; min-height: min(80vh, 760px); overflow: hidden; isolation: isolate; }
+.photo-quote > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.photo-quote::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(10,15,36,.82) 0%, rgba(10,15,36,.55) 50%, rgba(10,15,36,.2) 100%); }
+.photo-quote .wrap { width: 100%; }
+.photo-quote .quote p { max-width: 16em; }
+.photo-quote .quote footer { color: var(--bone); }
+
+/* A large enneagram drifting off the edge behind the stats line */
+.enneagram { position: relative; overflow: hidden; isolation: isolate; }
+.enneagram::before {
+  content: ""; position: absolute; z-index: -1; width: min(1100px, 140vw); aspect-ratio: 1;
+  right: max(-420px, -38vw); top: 50%; transform: translateY(-46%) rotate(-8deg);
+  background: url("img/enneagram.svg") center / contain no-repeat; opacity: .12;
+}
