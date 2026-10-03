@@ -462,12 +462,12 @@ section.flush { padding: 0; }
 /* Landing banner: keep the top of the performer's head in frame */
 .hero > img.head-in { object-position: 50% 12%; }
 
-/* Mailing-list band: the line sits above the girl's head, the button below her face */
-.signup.photo-band { display: grid; grid-template-rows: auto 1fr auto; min-height: min(92vh, 860px);
+/* Option B: the line sits above the girl's head, the button below her face */
+.signup.photo-band.v-head { display: grid; grid-template-rows: auto 1fr auto; min-height: min(92vh, 860px);
   padding-top: clamp(40px, 6vw, 72px); padding-bottom: clamp(40px, 6vw, 72px); }
-.photo-band > .band-bg { object-position: 50% 62%; }
-.photo-band .band-bottom { grid-row: 3; }
-.photo-band::after { background:
+.v-head > .band-bg { object-position: 50% 62%; }
+.v-head .band-bottom { grid-row: 3; }
+.photo-band.v-head::after { background:
   linear-gradient(180deg, rgba(7,11,26,.78) 0%, rgba(7,11,26,.25) 26%, rgba(7,11,26,.12) 55%, rgba(7,11,26,.7) 88%, var(--night) 100%) !important; }
 .script.one-line { white-space: nowrap; max-width: none; font-size: clamp(1.7rem, 6.2vw, 5.6rem); }
 
@@ -488,3 +488,28 @@ section.flush { padding: 0; }
 .quotes-bg .quotes.stack { max-width: 30em; }
 @media (max-width: 760px) { .quotes-bg.on-right::after { background: rgba(7,11,26,.78); } .quotes-bg.on-right .wrap { justify-items: start; } }
 .quotes-bg.on-right .quotes.stack { max-width: none; }
+
+/* Option D: full-bleed photo, line and button along the bottom */
+.signup.photo-band.v-bottom { display: grid; align-items: end; min-height: min(86vh, 820px); text-align: left;
+  padding-top: clamp(40px, 6vw, 72px); padding-bottom: clamp(40px, 6vw, 72px); }
+.v-bottom > .band-bg { object-position: 50% 45%; }
+.photo-band.v-bottom::after { background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.15) 22%, rgba(7,11,26,.2) 55%, rgba(7,11,26,.9) 88%, var(--night) 100%); }
+.v-bottom .row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
+.v-bottom .row p { margin: 0; }
+
+/* Option C: no photo */
+.signup.v-glow { padding-top: clamp(80px, 10vw, 140px); padding-bottom: clamp(80px, 10vw, 140px); }
+
+/* Option labels while choosing (temporary) */
+.signup { position: relative; }
+.option-tag { position: absolute; top: 14px; left: 14px; z-index: 2; margin: 0; padding: 5px 10px; border-radius: 3px;
+  font-family: var(--font-label); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--night); background: var(--alien); }
+
+/* Miracle Jones quote in the bottom-right corner; less of the photo's top */
+.photo-quote.corner { aspect-ratio: 2 / 1; align-items: end; padding: 0 0 clamp(40px, 5vw, 72px); }
+.photo-quote.corner .wrap { display: grid; justify-items: end; }
+.photo-quote.corner .quote { width: min(100%, 520px); }
+.photo-quote.corner::after { background: linear-gradient(315deg, rgba(7,11,26,.85) 0%, rgba(7,11,26,.5) 30%, rgba(7,11,26,0) 55%); }
+@media (max-width: 760px) { .photo-quote.corner .wrap { justify-items: start; } }
+.hero > img.right-edge { object-position: 100% 50%; }
