@@ -340,7 +340,7 @@ a.email:hover { color: var(--gold-lit); }
 
 /* Lynchian blue velvet curtain behind "Don't see what you want?" */
 .velvet { background:
-  linear-gradient(180deg, rgba(7,11,26,.55), rgba(7,11,26,.35) 40%, rgba(7,11,26,.6)),
+  linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.45) 24%, rgba(7,11,26,.35) 50%, rgba(7,11,26,.45) 76%, var(--night) 100%),
   url("img/velvet.webp") center / cover no-repeat, var(--night); }
 
 /* Large two-up photo grid (MIRI book launch) */
