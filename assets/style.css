@@ -425,3 +425,17 @@ a.email:hover { color: var(--gold-lit); }
 .jgrid a:hover img { transform: scale(1.03); }
 .jgrid figcaption { margin-top: 8px; font-family: var(--font-label); font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; color: var(--alien); }
 @media (max-width: 600px) { .jgrid { --row: 150px; gap: 20px 8px; } }
+
+/* Mailing-list band over a darkened photo */
+.signup.photo-band { position: relative; overflow: hidden; isolation: isolate; background: var(--night);
+  padding-top: clamp(96px, 12vw, 160px); padding-bottom: clamp(96px, 12vw, 160px); }
+.photo-band > .band-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.photo-band::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse at 50% 50%, rgba(7,11,26,.62), rgba(7,11,26,.86) 75%),
+              linear-gradient(180deg, var(--night) 0%, transparent 18%, transparent 82%, var(--night) 100%); }
+.photo-band .muted { color: var(--bone); }
+
+/* Buttons that share one width */
+.actions.even { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
+.actions.even .btn { text-align: center; white-space: nowrap; padding-inline: 18px; }
+@media (max-width: 1200px) { .actions.even { grid-auto-flow: row; } }
