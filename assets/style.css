@@ -617,3 +617,9 @@ a.name-link:hover { color: var(--gold-lit); }
 .quotes-photo::after { content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.45) 18%, rgba(7,11,26,.5) 60%, rgba(7,11,26,.8) 85%, var(--night) 100%); }
 .quotes-photo .quote p, .quotes-photo .quote footer { text-shadow: 0 2px 18px rgba(0,0,0,.7); }
+
+/* 4:06 AM photo-backed sections: frame each photo on its subject */
+.quotes-photo > img { object-position: 30% 75%; }
+.credits-photo > img { object-position: 50% 45%; }
+.credits-photo { padding: clamp(80px, 10vw, 140px) 0; }
+.credits-photo dt, .credits-photo dd, .credits-photo h2 { text-shadow: 0 2px 16px rgba(0,0,0,.75); }
