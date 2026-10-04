@@ -583,3 +583,12 @@ a.name-link:hover { color: var(--gold-lit); }
   .signup.photo-band.v-bottom.at-top { min-height: 560px; padding-top: 28px; }
   .at-top > .band-bg { top: auto; bottom: 0; width: 100%; height: 72%; aspect-ratio: auto; object-position: 50% 30%; }
 }
+
+/* 4:06 AM banner: the whole photo, scaled to the banner height and set at the right; the left fades into the page */
+@media (min-width: 761px) {
+  .hero.whole > img { object-fit: contain; object-position: right center; }
+  .hero.whole::after { background:
+    linear-gradient(90deg, var(--night) 0, var(--night) calc(100% - var(--banner-h) * 1.5), rgba(7,11,26,0) calc(100% - var(--banner-h) * 1.5 + 240px)),
+    linear-gradient(to top right, rgba(7,11,26,.85) 0%, rgba(7,11,26,0) 42%); }
+}
+@media (max-width: 760px) { .hero.whole > img { object-position: 55% 50%; } }
