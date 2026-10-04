@@ -623,3 +623,7 @@ a.name-link:hover { color: var(--gold-lit); }
 .credits-photo > img { object-position: 50% 45%; }
 .credits-photo { padding: clamp(80px, 10vw, 140px) 0; }
 .credits-photo dt, .credits-photo dd, .credits-photo h2 { text-shadow: 0 2px 16px rgba(0,0,0,.75); }
+
+/* 4:06 AM: no dividers in the quotes; both background photos a little more visible */
+.quotes-photo .quotes .quote { border-top: 0; padding-top: 0; }
+.quotes-photo::after { background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.3) 18%, rgba(7,11,26,.32) 60%, rgba(7,11,26,.65) 86%, var(--night) 100%); }
