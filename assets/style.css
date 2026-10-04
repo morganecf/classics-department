@@ -607,3 +607,13 @@ a.name-link:hover { color: var(--gold-lit); }
 .credits-bg > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 80%; z-index: -2; }
 .credits-bg::after { content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.55) 22%, rgba(7,11,26,.55) 78%, var(--night) 100%); }
+
+/* 4:06 AM: less space between the banner and About */
+.hero.whole + section { padding-top: clamp(20px, 3vw, 40px); }
+
+/* 4:06 AM audience quotes over a photo */
+.quotes-photo { position: relative; overflow: hidden; isolation: isolate; }
+.quotes-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; z-index: -2; }
+.quotes-photo::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.45) 18%, rgba(7,11,26,.5) 60%, rgba(7,11,26,.8) 85%, var(--night) 100%); }
+.quotes-photo .quote p, .quotes-photo .quote footer { text-shadow: 0 2px 18px rgba(0,0,0,.7); }
