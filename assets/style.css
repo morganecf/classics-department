@@ -592,3 +592,18 @@ a.name-link:hover { color: var(--gold-lit); }
     linear-gradient(to top right, rgba(7,11,26,.85) 0%, rgba(7,11,26,0) 42%); }
 }
 @media (max-width: 760px) { .hero.whole > img { object-position: 55% 50%; } }
+
+/* 4:06 AM: banner fades into the About section */
+.hero.whole::after { background: linear-gradient(180deg, rgba(7,11,26,0) 72%, var(--night) 100%), linear-gradient(180deg, rgba(7,11,26,.25) 0%, rgba(7,11,26,.15) 40%, rgba(7,11,26,.8) 100%); }
+@media (min-width: 761px) {
+  .hero.whole::after { background:
+    linear-gradient(180deg, rgba(7,11,26,0) 72%, var(--night) 100%),
+    linear-gradient(90deg, var(--night) 0, var(--night) calc(100% - var(--banner-h) * 1.5), rgba(7,11,26,0) calc(100% - var(--banner-h) * 1.5 + 240px)),
+    linear-gradient(to top right, rgba(7,11,26,.85) 0%, rgba(7,11,26,0) 42%); }
+}
+
+/* 4:06 AM credits over the photo of the hand */
+.credits-bg { position: relative; overflow: hidden; isolation: isolate; padding: clamp(80px, 10vw, 140px) 0; }
+.credits-bg > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 80%; z-index: -2; }
+.credits-bg::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.55) 22%, rgba(7,11,26,.55) 78%, var(--night) 100%); }
