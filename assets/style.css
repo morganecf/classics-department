@@ -913,7 +913,7 @@ a.name-link:hover { color: var(--gold-lit); }
 .gc-about.centered-letter .letter { max-width: 38em; }
 .gc-about.centered-letter .letter p { font-size: clamp(1.45rem, 2.5vw, 2rem); line-height: 1.35; }
 .gc-about.centered-letter .letter p.postscript { font-size: clamp(2rem, 3.6vw, 2.9rem); }
-.gc-herd-rapture { text-align: center; margin-top: clamp(64px, 9vw, 120px); }
-.gc-herd-rule { width: 64px; height: 1px; background: var(--gold); margin: 0 auto clamp(48px, 7vw, 88px); }
-.gc-herd-rapture h2 { color: var(--bone); font-size: clamp(2.2rem, 4.6vw, 3.8rem); line-height: 1.1; margin: 0 0 .5em; }
-.gc-herd-rapture p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.4rem, 2.4vw, 1.95rem); line-height: 1.35; color: var(--bone); max-width: 30em; margin: 0 auto; text-wrap: balance; }
+.gc-rapture { padding-bottom: clamp(28px, 4vw, 48px); }
+.gc-rapture h2 { color: var(--bone); font-size: clamp(2.2rem, 4.6vw, 3.8rem); line-height: 1.1; margin: 0 0 .45em; }
+.gc-rapture p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.4rem, 2.4vw, 1.95rem); line-height: 1.35; color: var(--bone); max-width: 32em; margin: 0; }
+.gc-rapture + .gc-grid { padding-top: 0; }
