@@ -906,7 +906,7 @@ a.name-link:hover { color: var(--gold-lit); }
 .gc-herd-call p { font-family: var(--font-display); font-style: italic; font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1.3; color: var(--bone); margin: 0 0 .9em; }
 .gc-herd + .gc-grid { padding-top: clamp(40px, 6vw, 72px); }
 /* closing: the call above the photo, larger letter text */
-.gc-waiting { text-align: center; padding-bottom: 0; }
+.gc-waiting { text-align: center; padding-bottom: clamp(20px, 2.5vw, 32px); }
 .gc-grid + .gc-waiting { padding-top: clamp(72px, 10vw, 140px); }
 .gc-waiting h2 { color: var(--bone); font-size: clamp(2.3rem, 5vw, 4.2rem); line-height: 1.1; max-width: 16em; margin: 0 auto; text-wrap: balance; }
 .gc-waiting + .gc-about.centered-letter.photo-section { padding-top: clamp(96px, 12vw, 160px); }
