@@ -779,13 +779,13 @@ a.name-link:hover { color: var(--gold-lit); }
 
 /* Upcoming: illustrated Golden Calf panel; deeper shade at the bottom so the title reads on the bright art */
 .panel > img.upc-art { object-position: 50% 62%; }
-/* Psychomagic 9: the fingertip of the raised hand (19.9% down the 2:3 art) touches the top of the panel on every screen.
-   The art keeps its own shape, is wide enough that the part below the fingertip still fills the panel,
-   and is shifted up by 19.9% of its own height. */
+/* Psychomagic 9: the top of the hat (26.8% down the 2:3 art) touches the top of the panel on every screen.
+   The art keeps its own shape, is wide enough that the part below the hat still fills the panel,
+   and is shifted up by 26.8% of its own height. */
 .panel > img.upc-art.upcoming-psychomagic-9 { top: 0; bottom: auto; left: 50%; right: auto; height: auto;
-  width: max(100%, calc(var(--banner-h) / (0.801 * 1.5))); max-width: none; object-fit: fill;
-  transform-origin: 50% 19.9%; transform: translate(-50%, -19.9%); }
-.panel:hover > img.upc-art.upcoming-psychomagic-9 { transform: translate(-50%, -19.9%) scale(1.03); }
+  width: max(100%, calc(var(--banner-h) / (0.732 * 1.5))); max-width: none; object-fit: fill;
+  transform-origin: 50% 26.8%; transform: translate(-50%, -26.8%); }
+.panel:hover > img.upc-art.upcoming-psychomagic-9 { transform: translate(-50%, -26.8%) scale(1.03); }
 .panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 30%, rgba(7,11,26,.55) 58%, rgba(7,11,26,.94) 100%); }
 .panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 18%, rgba(7,11,26,.5) 42%, rgba(7,11,26,.88) 62%, rgba(7,11,26,.96) 100%) !important; }
 
