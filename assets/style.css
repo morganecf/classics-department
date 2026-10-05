@@ -779,8 +779,8 @@ a.name-link:hover { color: var(--gold-lit); }
 
 /* Upcoming: illustrated Golden Calf panel; deeper shade at the bottom so the title reads on the bright art */
 .panel > img.upc-art { object-position: 50% 62%; }
-/* Psychomagic 9: anchored to the bottom so the man on the floor stays in frame; same fade as the Golden Calf panel */
-.panel > img.upc-art.upcoming-psychomagic-9 { object-position: 50% 100%; }
+/* Psychomagic 9 (mirrored): sits low enough that the raised hand has room above it; same fade as the Golden Calf panel */
+.panel > img.upc-art.upcoming-psychomagic-9 { object-position: 50% 20%; }
 .panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 30%, rgba(7,11,26,.55) 58%, rgba(7,11,26,.94) 100%); }
 .panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 18%, rgba(7,11,26,.5) 42%, rgba(7,11,26,.88) 62%, rgba(7,11,26,.96) 100%) !important; }
 
