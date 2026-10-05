@@ -861,3 +861,23 @@ a.name-link:hover { color: var(--gold-lit); }
   right: max(-300px, -24vw); top: 50%; transform: translateY(-50%);
   background: url("img/herd-seal-white.png") center / contain no-repeat; opacity: .14; }
 @media (max-width: 760px) { .gc-welcome.photo-section > img.section-bg { object-position: 36% 0%; } }
+
+/* Golden Calf, round 5 */
+/* questions in their earlier three-column format, at the current (larger) sizes */
+.gc-questions .gc-kicker { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: .5em; }
+.gc-questions .gc-ills { margin-bottom: clamp(24px, 3vw, 36px); }
+.gc-questions .gc-ills h3 { font-size: clamp(1.6rem, 3vw, 2.5rem); }
+.gc-questions .gc-ills p { font-size: clamp(1.3rem, 2.2vw, 1.8rem); font-style: italic; line-height: 1.3; }
+.gc-questions .gc-or { margin: 0; }
+.gc-questions .gc-or p { font-size: clamp(1.3rem, 2.4vw, 2rem); font-style: italic; }
+/* welcome: title centred above the two paragraphs */
+.gc-welcome-title { text-align: center; color: var(--bone); font-size: clamp(2.4rem, 4.6vw, 4rem); margin-bottom: .7em; }
+.gc-welcome.photo-section .split { align-items: start; }
+/* the cow mask: mirrored, dimmer, and reaching further into the sections above and below */
+.gc-welcome.photo-section { margin-top: clamp(-320px, -22vw, -180px); padding-top: calc(clamp(96px, 12vw, 160px) + clamp(180px, 22vw, 320px));
+  margin-bottom: clamp(-200px, -14vw, -110px); padding-bottom: calc(clamp(96px, 12vw, 160px) + clamp(110px, 14vw, 200px)); }
+.gc-welcome.photo-section > img.section-bg { transform: scaleX(-1); filter: brightness(.72);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%); }
+.gc-welcome + .gc-photo { position: relative; z-index: 2; }
+@media (max-width: 760px) { .gc-welcome.photo-section > img.section-bg { object-position: 34% 0%; } }
