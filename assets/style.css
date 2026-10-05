@@ -645,3 +645,21 @@ a.name-link:hover { color: var(--gold-lit); }
 .gc-photo + .gc-about { padding-top: 0; }
 .gc-photo-slot { aspect-ratio: 3 / 2; border-radius: 3px; }
 .gc-photo img { width: 100%; height: auto; border-radius: 3px; }
+
+/* Upcoming: two shows side by side on desktop, stacked on phones */
+@media (min-width: 900px) {
+  .panels.side-by-side { display: grid; grid-template-columns: 1fr 1fr; }
+  .panels.side-by-side li + li { border-left: 1px solid var(--night); }
+  .panels.side-by-side .panel h2 { font-size: clamp(2.4rem, 4.2vw, 4.6rem); }
+  .panels.side-by-side .panel p:not(.label) { font-size: clamp(.78rem, 1.05vw, 1rem); letter-spacing: .2em; }
+}
+/* Placeholder backgrounds until new imagery is made */
+.placeholder-art.art-p9 { background:
+  radial-gradient(ellipse at 40% 35%, rgba(240,122,82,.42), transparent 55%),
+  radial-gradient(ellipse at 75% 70%, rgba(120,86,230,.45), transparent 55%),
+  radial-gradient(ellipse at 15% 85%, rgba(95,156,138,.3), transparent 50%),
+  linear-gradient(160deg, #1d0f2e, #070b1a 75%); }
+.placeholder-art.art-gc { background:
+  radial-gradient(ellipse at 50% 30%, rgba(232,184,74,.5), transparent 55%),
+  radial-gradient(ellipse at 25% 90%, rgba(169,124,46,.3), transparent 50%),
+  linear-gradient(160deg, #2a1d0a, #070b1a 75%); }
