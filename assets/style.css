@@ -663,3 +663,10 @@ a.name-link:hover { color: var(--gold-lit); }
   radial-gradient(ellipse at 50% 30%, rgba(232,184,74,.5), transparent 55%),
   radial-gradient(ellipse at 25% 90%, rgba(169,124,46,.3), transparent 50%),
   linear-gradient(160deg, #2a1d0a, #070b1a 75%); }
+/* Golden Calf About: full-width sections, a pair of photos, a centred close */
+.gc-about.wide h2 { margin-top: 0; }
+.gc-about.wide p { max-width: none; }
+.gc-photo + .gc-photo, .gc-about + .gc-about { padding-top: 0; }
+.gc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 700px) { .gc-pair { grid-template-columns: 1fr; } }
+.gc-about.centered-letter .letter { max-width: 34em; margin-inline: auto; text-align: center; }
