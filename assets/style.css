@@ -779,9 +779,9 @@ a.name-link:hover { color: var(--gold-lit); }
 
 /* Upcoming: illustrated Golden Calf panel; deeper shade at the bottom so the title reads on the bright art */
 .panel > img.upc-art { object-position: 50% 62%; }
-/* Psychomagic 9 (mirrored): the fingertip of the raised hand (23% down the art) touches the top of the panel.
-   The image box is taller than the panel by that 23% and shifted up by it, so the top 23% of the art sits above the edge. */
-.panel > img.upc-art.upcoming-psychomagic-9 { top: -29.6%; height: 129.6%; object-position: 50% 0%; }
+/* Psychomagic 9: the fingertip of the raised hand (19.6% down the art) touches the top of the panel.
+   The image box is taller than the panel and shifted up so the top 19.6% of the art sits above the edge. */
+.panel > img.upc-art.upcoming-psychomagic-9 { top: -24.4%; height: 124.4%; object-position: 50% 0%; }
 .panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 30%, rgba(7,11,26,.55) 58%, rgba(7,11,26,.94) 100%); }
 .panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 18%, rgba(7,11,26,.5) 42%, rgba(7,11,26,.88) 62%, rgba(7,11,26,.96) 100%) !important; }
 
@@ -973,3 +973,15 @@ a.name-link:hover { color: var(--gold-lit); }
 @media (max-width: 760px) { .carousel.thirds { --car-h: 230px; } }
 .gc-car { padding-bottom: clamp(40px, 6vw, 80px); }
 .gc-car + .gc-waiting { padding-top: clamp(16px, 2vw, 28px); }
+
+/* About banner: a thin, skeletal oxblood rose that draws itself, then sways */
+.about-head { position: relative; isolation: isolate; overflow: hidden; }
+.about-head > .wrap { position: relative; z-index: 1; }
+.rose { position: absolute; left: max(8px, calc(var(--gutter) - 26px)); top: clamp(16px, 4vh, 40px); height: clamp(150px, 24vh, 300px); width: auto; z-index: 0;
+  overflow: visible; fill: none; stroke: #9b2232; stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px rgba(155, 34, 50, .35)); }
+.rose path { vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; animation: rose-draw 2.4s cubic-bezier(.6, .1, .3, 1) var(--d) forwards; }
+.rose-sway { transform-origin: 78px 352px; transform-box: view-box; animation: rose-sway 9s ease-in-out 4s infinite; }
+@keyframes rose-draw { to { stroke-dashoffset: 0; } }
+@keyframes rose-sway { 0%, 100% { transform: rotate(0deg); } 30% { transform: rotate(2.2deg); } 70% { transform: rotate(-1.6deg); } }
+@media (prefers-reduced-motion: reduce) { .rose path { animation: none; stroke-dashoffset: 0; } .rose-sway { animation: none; } }
