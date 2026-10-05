@@ -776,3 +776,8 @@ a.name-link:hover { color: var(--gold-lit); }
 .centered-letter.photo-section::after { background:
   radial-gradient(ellipse 50% 60% at 50% 50%, rgba(7,11,26,.7), rgba(7,11,26,.35) 100%),
   linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.2) 20%, rgba(7,11,26,.2) 80%, var(--night) 100%); }
+
+/* Upcoming: illustrated Golden Calf panel; deeper shade at the bottom so the title reads on the bright art */
+.panel > img.upc-art { object-position: 50% 22%; }
+.panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 30%, rgba(7,11,26,.55) 58%, rgba(7,11,26,.94) 100%); }
+.panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 18%, rgba(7,11,26,.5) 42%, rgba(7,11,26,.88) 62%, rgba(7,11,26,.96) 100%) !important; }
