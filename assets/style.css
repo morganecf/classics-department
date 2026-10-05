@@ -705,3 +705,13 @@ a.name-link:hover { color: var(--gold-lit); }
 .gc-are-you .gc-or { margin-bottom: 0; }
 .gc-are-you { padding-bottom: clamp(40px, 6vw, 72px); }
 .gc-are-you + .gc-welcome { padding-top: clamp(24px, 3vw, 40px); }
+
+/* Golden Calf: the Herd of God seal behind the opening questions */
+.seal-bg { position: relative; isolation: isolate; overflow: hidden;
+  background: url("img/herd-seal.webp") center / min(1000px, 130%) no-repeat, var(--night); }
+.seal-bg::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, var(--night) 0, rgba(7,11,26,0) calc(50% - min(500px, 65%) + 220px), rgba(7,11,26,0) calc(50% + min(500px, 65%) - 220px), var(--night) 100%),
+              radial-gradient(ellipse at 50% 50%, rgba(7,11,26,.62), rgba(7,11,26,.82) 70%),
+              linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,0) 12%, rgba(7,11,26,0) 88%, var(--night) 100%); }
+.seal-bg .gc-or { border-color: rgba(238,234,228,.22); }
+.seal-bg h2, .seal-bg p { text-shadow: 0 2px 14px rgba(0,0,0,.6); }
