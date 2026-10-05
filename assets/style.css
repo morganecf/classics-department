@@ -916,23 +916,6 @@ a.name-link:hover { color: var(--gold-lit); }
 /* full-width photo sections between the grids */
 .gc-feature { position: relative; isolation: isolate; overflow: hidden; padding: 0; }
 .gc-feature + .gc-grid { padding-top: clamp(28px, 4vw, 48px); }
-/* 1: a smaller photo, edges fading into the page, with the Rapture title over its dark top */
-.gc-inset { padding-top: clamp(40px, 5vw, 64px); background: var(--night); }
-/* lighten: the photo's black takes on the page's navy, so the edges disappear */
-.gc-inset > img { mix-blend-mode: lighten; }
-.gc-inset > img { display: block; width: min(100%, 1100px); height: auto; margin: 0 auto; position: relative; z-index: -1;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 16%, #000 80%, transparent 100%);
-  -webkit-mask-composite: source-in;
-          mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 16%, #000 80%, transparent 100%);
-          mask-composite: intersect; }
-.gc-inset .gc-rapture { position: absolute; left: 0; right: 0; top: clamp(72px, 9vw, 120px); }
-.gc-rapture h2 { font-size: clamp(1.7rem, 3.4vw, 2.8rem); text-transform: uppercase; letter-spacing: .04em; line-height: 1.1; margin: 0 0 .5em; }
-.gc-rapture p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.15rem, 1.8vw, 1.45rem); line-height: 1.45; color: var(--bone); max-width: 36em; margin: 0; }
-@media (max-width: 760px) {
-  .gc-inset { display: flex; flex-direction: column-reverse; }
-  .gc-inset .gc-rapture { position: static; }
-  .gc-inset > img { margin-top: 8px; }
-}
 /* 2: full width, quote centred over a darkened middle */
 .gc-centered { display: flex; align-items: center; justify-content: center; text-align: center;
   height: min(calc(100vw / var(--ar)), 92vh); min-height: 460px; }
@@ -948,9 +931,7 @@ a.name-link:hover { color: var(--gold-lit); }
 @media (max-width: 860px) { .quotes.three { grid-template-columns: 1fr; } }
 .gc-quotes + .gc-grid { padding-top: clamp(48px, 7vw, 88px); }
 
-/* ---------- Rapture section options (preview page) ---------- */
-.opt-tag { position: absolute; top: 14px; left: 14px; z-index: 3; margin: 0; padding: 5px 10px; border-radius: 3px; background: var(--alien); color: var(--night);
-  font-family: var(--font-label); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
+/* ---------- Golden Calf: Rapture section, full-width photo with the title over its dark side ---------- */
 .rv { position: relative; isolation: isolate; overflow: hidden; padding: 0; }
 .rv .rv-text h2 { margin: 0 0 .5em; font-size: clamp(1.7rem, 3.4vw, 2.8rem); text-transform: uppercase; letter-spacing: .04em; line-height: 1.1; }
 .rv .rv-text p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.15rem, 1.8vw, 1.45rem); line-height: 1.45; color: var(--bone); margin: 0; text-shadow: 0 1px 10px rgba(0,0,0,.7); }
@@ -982,3 +963,4 @@ a.name-link:hover { color: var(--gold-lit); }
   .rv-bleed::after { display: none; }
   .rv-bleed .wrap { padding-bottom: 24px; }
 }
+.rv-bleed + .gc-grid { padding-top: clamp(28px, 4vw, 48px); }
