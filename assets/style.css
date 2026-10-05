@@ -706,12 +706,46 @@ a.name-link:hover { color: var(--gold-lit); }
 .gc-are-you { padding-bottom: clamp(40px, 6vw, 72px); }
 .gc-are-you + .gc-welcome { padding-top: clamp(24px, 3vw, 40px); }
 
-/* Golden Calf: the Herd of God seal behind the opening questions */
-.seal-bg { position: relative; isolation: isolate; overflow: hidden;
-  background: url("img/herd-seal.webp") center / min(1000px, 130%) no-repeat, var(--night); }
-.seal-bg::before { content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(90deg, var(--night) 0, rgba(7,11,26,0) calc(50% - min(500px, 65%) + 220px), rgba(7,11,26,0) calc(50% + min(500px, 65%) - 220px), var(--night) 100%),
-              radial-gradient(ellipse at 50% 50%, rgba(7,11,26,.62), rgba(7,11,26,.82) 70%),
-              linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,0) 12%, rgba(7,11,26,0) 88%, var(--night) 100%); }
-.seal-bg .gc-or { border-color: rgba(238,234,228,.22); }
-.seal-bg h2, .seal-bg p { text-shadow: 0 2px 14px rgba(0,0,0,.6); }
+
+/* Golden Calf questions: plain descriptions, no dividers, a larger italic "Or perhaps" */
+.gc-ills p, .gc-or p { font-style: normal; }
+.gc-or { border: 0; padding: 0; margin-top: clamp(8px, 2vw, 24px); }
+.gc-or-word { font-family: var(--font-display); font-style: italic; text-transform: none; letter-spacing: 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem); color: var(--bone); margin-bottom: 6px; }
+
+/* Sections with a photo behind them */
+.photo-section { position: relative; overflow: hidden; isolation: isolate; }
+.photo-section > img.section-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.photo-section::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.5) 22%, rgba(7,11,26,.5) 78%, var(--night) 100%); }
+.photo-section h2, .photo-section p { text-shadow: 0 2px 18px rgba(0,0,0,.65); }
+
+/* Welcome header: centred, between the questions and the next section */
+.gc-welcome-head { text-align: center; padding: clamp(96px, 12vw, 180px) 0; }
+.gc-welcome-head h2 { color: var(--bone); font-size: clamp(2.6rem, 6vw, 5rem); margin-bottom: .3em; }
+.gc-welcome-head .gc-sub { font-family: var(--font-label); text-transform: uppercase; letter-spacing: .24em; font-size: clamp(.85rem, 1.4vw, 1.1rem); max-width: 40em; margin: 0 auto; }
+.gc-are-you + .gc-welcome-head { margin-top: 0; }
+.gc-welcome-head + .gc-welcome { padding-top: clamp(56px, 8vw, 104px); }
+.gc-welcome .lede { margin: 0; }
+.gc-welcome img.lgd-white { border-radius: 3px; }
+.gc-welcome + .gc-photo { padding-top: 0; }
+.gc-photo .gc-pair img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; border-radius: 3px; }
+
+/* "Reality is changing fast" over the white-line seal */
+.gc-church.seal-white { position: relative; isolation: isolate; overflow: hidden; padding: clamp(96px, 12vw, 160px) 0; }
+.gc-church.seal-white::before { content: ""; position: absolute; z-index: -1; left: 50%; top: 50%;
+  width: min(820px, 120vw); aspect-ratio: 1; transform: translate(-50%, -50%);
+  background: url("img/herd-seal-white.png") center / contain no-repeat; opacity: .16; }
+.gc-photo + .gc-church.seal-white { padding-top: clamp(96px, 12vw, 160px); }
+.gc-church.seal-white .wrap { text-align: center; }
+.gc-church.seal-white h2 { margin-inline: auto; }
+.gc-church.seal-white p { margin-inline: auto; }
+
+/* Join us over a photo */
+.gc-join.photo-section { padding: clamp(96px, 12vw, 160px) 0; }
+.gc-church + .gc-join { padding-top: clamp(96px, 12vw, 160px); }
+.gc-join + .gc-grid { padding-top: clamp(56px, 8vw, 96px); }
+.gc-welcome p.lede { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.3; }
+.gc-join.photo-section::after { background:
+  radial-gradient(ellipse 60% 55% at 50% 50%, rgba(7,11,26,.62), rgba(7,11,26,.3) 100%),
+  linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.2) 22%, rgba(7,11,26,.2) 78%, var(--night) 100%); }
