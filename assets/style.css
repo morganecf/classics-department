@@ -639,3 +639,9 @@ a.name-link:hover { color: var(--gold-lit); }
 .panel .btn { margin-top: 24px; }
 .panel .label { margin-bottom: 12px; }
 @media (max-width: 760px) { .panel.tall::after { background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(7,11,26,.6) 62%, rgba(7,11,26,.88) 100%); } }
+.gc-about .letter h2 { color: var(--bone); margin-top: 1.4em; }
+.gc-about .letter h2:first-child { margin-top: 0; }
+.gc-about + .gc-photo { padding-top: 0; }
+.gc-photo + .gc-about { padding-top: 0; }
+.gc-photo-slot { aspect-ratio: 3 / 2; border-radius: 3px; }
+.gc-photo img { width: 100%; height: auto; border-radius: 3px; }
