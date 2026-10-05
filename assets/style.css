@@ -947,3 +947,38 @@ a.name-link:hover { color: var(--gold-lit); }
 .quotes.three { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 0; }
 @media (max-width: 860px) { .quotes.three { grid-template-columns: 1fr; } }
 .gc-quotes + .gc-grid { padding-top: clamp(48px, 7vw, 88px); }
+
+/* ---------- Rapture section options (preview page) ---------- */
+.opt-tag { position: absolute; top: 14px; left: 14px; z-index: 3; margin: 0; padding: 5px 10px; border-radius: 3px; background: var(--alien); color: var(--night);
+  font-family: var(--font-label); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
+.rv { position: relative; isolation: isolate; overflow: hidden; padding: 0; }
+.rv .rv-text h2 { margin: 0 0 .5em; font-size: clamp(1.7rem, 3.4vw, 2.8rem); text-transform: uppercase; letter-spacing: .04em; line-height: 1.1; }
+.rv .rv-text p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.15rem, 1.8vw, 1.45rem); line-height: 1.45; color: var(--bone); margin: 0; text-shadow: 0 1px 10px rgba(0,0,0,.7); }
+.rv-bleed { display: flex; height: min(calc(100vw / var(--ar)), 92vh); min-height: 520px; }
+.rv-bleed > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.rv-bleed::after { content: ""; position: absolute; inset: 0; z-index: -1; }
+.rv-bleed .wrap { width: 100%; display: flex; padding-top: clamp(64px, 8vw, 110px); padding-bottom: clamp(48px, 7vw, 96px); }
+.rv-bleed .rv-text { max-width: 32em; }
+.rv-top-left .wrap { align-items: flex-start; }
+.rv-top-left::after { background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.55) 22%, rgba(7,11,26,0) 50%, rgba(7,11,26,0) 82%, var(--night) 100%); }
+.rv-top-right .wrap { align-items: flex-start; justify-content: flex-end; }
+.rv-top-right .rv-text { max-width: 26em; }
+.rv-top-right::after { background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.5) 22%, rgba(7,11,26,0) 50%, rgba(7,11,26,0) 82%, var(--night) 100%),
+  linear-gradient(270deg, rgba(7,11,26,.6) 0%, rgba(7,11,26,0) 45%); }
+.rv-middle-left .wrap { align-items: center; }
+.rv-middle-left .rv-text { max-width: 24em; }
+.rv-middle-left::after { background: linear-gradient(90deg, rgba(7,11,26,.85) 0%, rgba(7,11,26,.45) 38%, rgba(7,11,26,0) 60%),
+  linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,0) 14%, rgba(7,11,26,0) 86%, var(--night) 100%); }
+.rv-bottom-left .wrap { align-items: flex-end; }
+.rv-bottom-left::after { background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,0) 14%, rgba(7,11,26,0) 45%, rgba(7,11,26,.85) 82%, var(--night) 100%); }
+.rv-split { padding: clamp(64px, 8vw, 110px) 0; }
+.rv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.rv-pic img { display: block; width: 100%; height: auto; max-height: 80vh; object-fit: cover; border-radius: 3px; }
+@media (max-width: 760px) {
+  .rv-grid { grid-template-columns: 1fr; }
+  .rv-grid > .rv-pic { order: 2; }
+  .rv-bleed { min-height: 0; height: auto; flex-direction: column; }
+  .rv-bleed > img { position: static; height: auto; order: 2; }
+  .rv-bleed::after { display: none; }
+  .rv-bleed .wrap { padding-bottom: 24px; }
+}
