@@ -965,7 +965,8 @@ a.name-link:hover { color: var(--gold-lit); }
 }
 .rv-bleed + .gc-grid { padding-top: clamp(28px, 4vw, 48px); }
 /* Golden Calf: full-width carousels, about three landscape photos across */
-.carousel.thirds { --car-h: calc((100vw - 20px) / 4.5); }
+.carousel.thirds { --car-h: calc((100vw - 20px) / 3.75); }
 .carousel.thirds .track { gap: 10px; padding: 0; scroll-padding: 0; }
-@media (max-width: 760px) { .carousel.thirds { --car-h: 210px; } }
+@media (max-width: 760px) { .carousel.thirds { --car-h: 230px; } }
 .gc-car { padding-bottom: clamp(40px, 6vw, 80px); }
+.gc-car + .gc-waiting { padding-top: clamp(16px, 2vw, 28px); }
