@@ -781,3 +781,52 @@ a.name-link:hover { color: var(--gold-lit); }
 .panel > img.upc-art { object-position: 50% 22%; }
 .panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 30%, rgba(7,11,26,.55) 58%, rgba(7,11,26,.94) 100%); }
 .panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 18%, rgba(7,11,26,.5) 42%, rgba(7,11,26,.88) 62%, rgba(7,11,26,.96) 100%) !important; }
+
+/* Golden Calf, round 3: the questions as a compact comic strip */
+.gc-comic { padding: clamp(40px, 5vw, 64px) 0; }
+.comic-strip { display: grid; grid-template-columns: .8fr 1fr 1fr 1fr; gap: 10px; }
+.cpanel { position: relative; border: 3px solid var(--bone); padding: 44px 18px 18px; min-height: 170px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  background:
+    radial-gradient(rgba(217,178,94,.22) 1.1px, transparent 1.6px) 0 0 / 7px 7px,
+    linear-gradient(160deg, #141a36, #090d1f); }
+.cpanel:nth-child(2) { transform: rotate(-.6deg); }
+.cpanel:nth-child(4) { transform: rotate(.6deg); }
+.cpanel h3 { font-size: clamp(1.6rem, 2.6vw, 2.4rem); text-transform: uppercase; letter-spacing: .03em; margin: 0; }
+.cpanel .caption { position: absolute; top: -3px; left: -3px; max-width: calc(100% - 20px);
+  background: var(--bone); color: var(--night); padding: 5px 10px 4px;
+  font-family: var(--font-label); font-weight: 600; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; line-height: 1.35; }
+.cpanel-title { justify-content: center; background: var(--gold); border-color: var(--gold);
+  background: radial-gradient(rgba(7,11,26,.18) 1.1px, transparent 1.6px) 0 0 / 7px 7px, var(--leaf); background-size: 7px 7px, 140px 140px, 100% 100%; }
+.cpanel-title h2 { color: var(--night); font-family: var(--font-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em;
+  font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1; margin: 0; }
+.cpanel-wide { grid-column: 1 / -1; min-height: 0; padding: 40px 22px 18px; transform: rotate(-.25deg); }
+.cpanel-wide p { margin: 0; font-family: var(--font-display); font-size: clamp(1.25rem, 2.2vw, 1.8rem); line-height: 1.3; }
+.cpanel-wide p .gold-leaf { text-transform: uppercase; letter-spacing: .03em; font-size: 1.3em; }
+@media (max-width: 760px) {
+  .comic-strip { grid-template-columns: 1fr 1fr; }
+  .cpanel-title { grid-column: 1 / -1; min-height: 0; padding: 18px; }
+  .cpanel-title h2 br { display: none; }
+  .cpanel { min-height: 140px; }
+  .cpanel:nth-child(4) { grid-column: 1 / -1; }
+}
+
+/* Welcome: heading and subheading left, the creed right, over a photo */
+.gc-welcome.photo-section { text-align: left; padding: clamp(96px, 12vw, 160px) 0; }
+.gc-welcome.photo-section .split { align-items: center; }
+.gc-welcome.photo-section h2 { color: var(--bone); font-size: clamp(2.4rem, 4.6vw, 4rem); margin-bottom: .35em; }
+.gc-welcome.photo-section .gc-sub { font-family: var(--font-label); text-transform: uppercase; letter-spacing: .22em; font-size: clamp(.8rem, 1.2vw, 1rem); line-height: 1.6; margin: 0; max-width: 26em; }
+.gc-welcome.photo-section p.lede { margin: 0; max-width: none; }
+.gc-comic + .gc-welcome { margin-top: 0; }
+.gc-welcome + .gc-photo { padding-top: clamp(56px, 8vw, 96px); }
+
+/* three church photos */
+.gc-trio { grid-template-columns: 1fr 1fr 1fr; align-items: stretch; }
+.gc-trio > img, .gc-trio > img:not(.lgd-white) { aspect-ratio: 3 / 4; object-fit: cover; height: 100%; }
+
+/* Reality: text left, Little Gold Different right */
+.gc-church .split { align-items: center; text-align: left; }
+.gc-church img.lgd-white { width: 100%; max-width: 460px; height: auto; justify-self: center; border-radius: 3px; }
+.gc-photo + .gc-church { padding-top: clamp(64px, 8vw, 104px); }
+@media (min-width: 761px) { .cpanel-title h2 span { display: block; } }
+@media (max-width: 760px) { .cpanel { min-height: 104px; } .cpanel-title { padding: 14px 18px; } }
