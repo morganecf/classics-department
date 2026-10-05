@@ -913,18 +913,37 @@ a.name-link:hover { color: var(--gold-lit); }
 .gc-about.centered-letter .letter { max-width: 38em; }
 .gc-about.centered-letter .letter p { font-size: clamp(1.45rem, 2.5vw, 2rem); line-height: 1.35; }
 .gc-about.centered-letter .letter p.postscript { font-size: clamp(2rem, 3.6vw, 2.9rem); }
-.gc-rapture { padding-bottom: clamp(28px, 4vw, 48px); }
+/* full-width photo sections between the grids */
+.gc-feature { position: relative; isolation: isolate; overflow: hidden; padding: 0; }
+.gc-feature + .gc-grid { padding-top: clamp(28px, 4vw, 48px); }
+/* 1: a smaller photo, edges fading into the page, with the Rapture title over its dark top */
+.gc-inset { padding-top: clamp(40px, 5vw, 64px); background: var(--night); }
+/* lighten: the photo's black takes on the page's navy, so the edges disappear */
+.gc-inset > img { mix-blend-mode: lighten; }
+.gc-inset > img { display: block; width: min(100%, 1100px); height: auto; margin: 0 auto; position: relative; z-index: -1;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 16%, #000 80%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 16%, #000 80%, transparent 100%);
+          mask-composite: intersect; }
+.gc-inset .gc-rapture { position: absolute; left: 0; right: 0; top: clamp(72px, 9vw, 120px); }
 .gc-rapture h2 { font-size: clamp(1.7rem, 3.4vw, 2.8rem); text-transform: uppercase; letter-spacing: .04em; line-height: 1.1; margin: 0 0 .5em; }
 .gc-rapture p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.15rem, 1.8vw, 1.45rem); line-height: 1.45; color: var(--bone); max-width: 36em; margin: 0; }
-.gc-rapture + .gc-feature { margin-top: clamp(8px, 2vw, 24px); }
-/* full-width photo with a quote over its lower left, then a grid of half the photos */
-.gc-feature { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-end; padding: 0;
+@media (max-width: 760px) {
+  .gc-inset { display: flex; flex-direction: column-reverse; }
+  .gc-inset .gc-rapture { position: static; }
+  .gc-inset > img { margin-top: 8px; }
+}
+/* 2: full width, quote centred over a darkened middle */
+.gc-centered { display: flex; align-items: center; justify-content: center; text-align: center;
   height: min(calc(100vw / var(--ar)), 92vh); min-height: 460px; }
-.gc-feature > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
-.gc-feature::after { content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,0) 14%, rgba(7,11,26,0) 50%, rgba(7,11,26,.8) 88%, var(--night) 100%); }
-.gc-feature .wrap { width: 100%; padding-bottom: clamp(36px, 5vw, 72px); }
-.gc-feature .quote { max-width: 30em; }
-.gc-feature .quote p { font-size: clamp(1.6rem, 3vw, 2.6rem); text-shadow: 0 2px 12px rgba(0,0,0,.6); }
-.gc-feature + .gc-grid { padding-top: clamp(28px, 4vw, 48px); }
-.gc-grid + .gc-feature { margin-top: 0; }
+.gc-centered > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.gc-centered::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse 48% 42% at 50% 50%, rgba(7,11,26,.82) 0%, rgba(7,11,26,.55) 55%, rgba(7,11,26,0) 100%),
+              linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,0) 14%, rgba(7,11,26,0) 86%, var(--night) 100%); }
+.gc-centered .quote { max-width: 26em; margin: 0 auto; }
+.gc-centered .quote p { font-size: clamp(1.6rem, 3vw, 2.6rem); text-shadow: 0 2px 12px rgba(0,0,0,.6); }
+/* three quotes in a row */
+.gc-quotes { padding-top: clamp(40px, 6vw, 72px); padding-bottom: clamp(16px, 3vw, 32px); }
+.quotes.three { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 0; }
+@media (max-width: 860px) { .quotes.three { grid-template-columns: 1fr; } }
+.gc-quotes + .gc-grid { padding-top: clamp(48px, 7vw, 88px); }
