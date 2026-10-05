@@ -751,7 +751,7 @@ a.name-link:hover { color: var(--gold-lit); }
   linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.2) 22%, rgba(7,11,26,.2) 78%, var(--night) 100%); }
 
 /* Golden Calf, round 2 */
-.hero.fade-down::after { background: linear-gradient(180deg, rgba(7,11,26,.25) 0%, rgba(7,11,26,.15) 40%, rgba(7,11,26,.75) 82%, var(--night) 100%); }
+.hero.fade-down::after { background: linear-gradient(180deg, rgba(7,11,26,.25) 0%, rgba(7,11,26,.15) 35%, rgba(7,11,26,.45) 60%, rgba(7,11,26,.78) 80%, rgba(7,11,26,.94) 92%, var(--night) 100%); }
 /* questions back to their earlier look (no dividers) */
 .gc-ills p, .gc-or p { font-style: italic; }
 .gc-or-word { font-family: var(--font-label); font-style: normal; text-transform: uppercase; letter-spacing: .26em; font-size: .78rem; color: var(--alien); margin-bottom: 12px; }
@@ -884,10 +884,11 @@ a.name-link:hover { color: var(--gold-lit); }
 
 /* ---------- Golden Calf: the Herd of God (prompts over the calf, welcome, creed, call) ---------- */
 .gc-herd { position: relative; isolation: isolate; overflow: hidden; padding: clamp(110px, 14vw, 200px) 0 clamp(80px, 10vw, 140px); }
-.gc-herd > img.gc-herd-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; z-index: -2; transform: scaleX(-1); filter: brightness(.48); }
+.gc-herd > img.gc-herd-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; z-index: -2; transform: scaleX(-1); filter: brightness(.48);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.12) 8%, rgba(0,0,0,.4) 18%, rgba(0,0,0,.75) 28%, #000 40%);
+          mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.12) 8%, rgba(0,0,0,.4) 18%, rgba(0,0,0,.75) 28%, #000 40%); }
 .gc-herd::after { content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,0) 22%),
-              linear-gradient(90deg, rgba(7,11,26,.75) 0%, rgba(7,11,26,.35) 60%, rgba(7,11,26,.15) 100%),
+  background: linear-gradient(90deg, rgba(7,11,26,.75) 0%, rgba(7,11,26,.35) 60%, rgba(7,11,26,.15) 100%),
               linear-gradient(180deg, rgba(7,11,26,0) 35%, rgba(7,11,26,.8) 70%, rgba(7,11,26,.95) 100%); }
 .prompts { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-size: clamp(.95rem, 1.65vw, 1.3rem); line-height: 1.9;
   color: #ece6e2; text-shadow: 0 1px 6px rgba(0,0,0,.8); max-width: 46em; }
@@ -912,3 +913,7 @@ a.name-link:hover { color: var(--gold-lit); }
 .gc-about.centered-letter .letter { max-width: 38em; }
 .gc-about.centered-letter .letter p { font-size: clamp(1.45rem, 2.5vw, 2rem); line-height: 1.35; }
 .gc-about.centered-letter .letter p.postscript { font-size: clamp(2rem, 3.6vw, 2.9rem); }
+.gc-herd-rapture { text-align: center; margin-top: clamp(64px, 9vw, 120px); }
+.gc-herd-rule { width: 64px; height: 1px; background: var(--gold); margin: 0 auto clamp(48px, 7vw, 88px); }
+.gc-herd-rapture h2 { color: var(--bone); font-size: clamp(2.2rem, 4.6vw, 3.8rem); line-height: 1.1; margin: 0 0 .5em; }
+.gc-herd-rapture p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.4rem, 2.4vw, 1.95rem); line-height: 1.35; color: var(--bone); max-width: 30em; margin: 0 auto; text-wrap: balance; }
