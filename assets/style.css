@@ -692,3 +692,16 @@ a.name-link:hover { color: var(--gold-lit); }
 .gc-or p .gold-leaf { font-style: normal; text-transform: uppercase; letter-spacing: .04em; font-size: 1.25em; }
 .gc-church h2 { max-width: 18em; color: var(--bone); }
 .gc-photo + .gc-church { padding-top: clamp(40px, 6vw, 72px); }
+
+/* Golden Calf: welcome beside the Little Gold Different image */
+.gc-welcome .split { align-items: center; }
+.gc-welcome h2 { color: var(--bone); }
+.gc-welcome .serif-prose p, .gc-welcome p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.25rem, 1.9vw, 1.55rem); line-height: 1.45; }
+.gc-welcome img.lgd-white { width: 100%; height: auto; max-width: 520px; justify-self: center; }
+.gc-welcome + .gc-church, .gc-church + .gc-join, .gc-join + .gc-grid { padding-top: 0; }
+.gc-join { text-align: center; }
+.gc-join .gc-call { font-family: var(--font-display); font-style: italic; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.25; margin: 0 auto 8px; max-width: 22em; }
+.centered-letter .actions { margin: 28px 0 8px; }
+.gc-are-you .gc-or { margin-bottom: 0; }
+.gc-are-you { padding-bottom: clamp(40px, 6vw, 72px); }
+.gc-are-you + .gc-welcome { padding-top: clamp(24px, 3vw, 40px); }
