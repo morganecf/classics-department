@@ -749,3 +749,30 @@ a.name-link:hover { color: var(--gold-lit); }
 .gc-join.photo-section::after { background:
   radial-gradient(ellipse 60% 55% at 50% 50%, rgba(7,11,26,.62), rgba(7,11,26,.3) 100%),
   linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.2) 22%, rgba(7,11,26,.2) 78%, var(--night) 100%); }
+
+/* Golden Calf, round 2 */
+.hero.fade-down::after { background: linear-gradient(180deg, rgba(7,11,26,.25) 0%, rgba(7,11,26,.15) 40%, rgba(7,11,26,.75) 82%, var(--night) 100%); }
+/* questions back to their earlier look (no dividers) */
+.gc-ills p, .gc-or p { font-style: italic; }
+.gc-or-word { font-family: var(--font-label); font-style: normal; text-transform: uppercase; letter-spacing: .26em; font-size: .78rem; color: var(--alien); margin-bottom: 12px; }
+/* one section: questions and the welcome header, over the seal set off to the right */
+.gc-are-you.seal-side { position: relative; isolation: isolate; overflow: hidden; padding-bottom: clamp(80px, 10vw, 140px); }
+.gc-are-you.seal-side::before { content: ""; position: absolute; z-index: -1; width: min(760px, 95vw); aspect-ratio: 1;
+  right: max(-260px, -22vw); top: 50%; transform: translateY(-50%) rotate(8deg);
+  background: url("img/herd-seal-white.png") center / contain no-repeat; opacity: .2; }
+@media (max-width: 760px) { .gc-are-you.seal-side::before { right: -45vw; opacity: .14; } }
+.gc-are-you .gc-welcome-head { text-align: center; padding: clamp(80px, 10vw, 140px) var(--gutter) 0; }
+/* welcome line on its own, centred */
+.gc-welcome { text-align: center; }
+.gc-welcome p.lede { margin-inline: auto; max-width: 24em; }
+/* two church photos with Little Gold Different between them */
+.gc-trio { display: grid; grid-template-columns: 1fr minmax(0, .82fr) 1fr; gap: 12px; align-items: center; }
+.gc-trio img { width: 100%; height: auto; border-radius: 3px; }
+.gc-trio > img:not(.lgd-white) { aspect-ratio: 3 / 4; object-fit: cover; }
+@media (max-width: 760px) { .gc-trio { grid-template-columns: 1fr; } .gc-trio > img:not(.lgd-white) { aspect-ratio: 3 / 2; } }
+/* closing letter over a photo */
+.centered-letter.photo-section { padding: clamp(96px, 12vw, 160px) 0; }
+.gc-grid + .centered-letter.photo-section { padding-top: clamp(96px, 12vw, 160px); }
+.centered-letter.photo-section::after { background:
+  radial-gradient(ellipse 50% 60% at 50% 50%, rgba(7,11,26,.7), rgba(7,11,26,.35) 100%),
+  linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.2) 20%, rgba(7,11,26,.2) 80%, var(--night) 100%); }
