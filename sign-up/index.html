@@ -41,9 +41,12 @@
     <p class="label alien">Mailing list</p>
     <h1 style="font-size:clamp(2.4rem,6vw,4.6rem)">Slip off the edge of the ordinary</h1>
     <p class="lede">We have magic and madness in the making. Sign up and join us at our next event.</p>
-    <div class="actions" style="justify-content:center">
-      <a class="btn" href="../contact/"><span>Join the list</span></a>
-    </div>
+    <div class="signup-page-form"><form class="list-form" action="https://app.kit.com/forms/10087673/subscriptions" method="post">
+      <label class="visually-hidden" for="list-email-3">Email address</label>
+      <input id="list-email-3" name="email_address" type="email" placeholder="Your email address" autocomplete="email" required>
+      <button class="btn" type="submit"><span>Join the list</span></button>
+      <p class="list-msg" role="status" aria-live="polite"></p>
+    </form></div>
     <p class="muted" style="margin-top:24px">See you on the other side.</p>
   </div>
 </section>
