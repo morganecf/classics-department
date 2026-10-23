@@ -1126,3 +1126,15 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
   /* About and Contact: plain title area, no picture */
   .about-head > img.about-bg, .contact-head > img.contact-bg, .about-head::after, .contact-head::after { display: none; }
 }
+
+/* Herd of God, closing run: the call over the girl in white, the invitation and sign-up, then the last carousel over the purple photo */
+.gc-centered h2.gc-call-title { color: var(--bone); font-size: clamp(2.2rem, 5vw, 4.2rem); line-height: 1.1; max-width: 15em; margin: 0 auto; text-wrap: balance;
+  text-shadow: 0 2px 20px rgba(0,0,0,.6); }
+.gc-gifts { text-align: center; padding: clamp(48px, 7vw, 88px) 0 clamp(56px, 8vw, 104px); }
+.gc-gifts p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.45rem, 2.5vw, 2rem); line-height: 1.35; color: var(--bone);
+  max-width: 30em; margin: 0 auto 28px; text-wrap: balance; }
+.gc-car-over { position: relative; isolation: isolate; overflow: hidden; padding: clamp(72px, 10vw, 140px) 0; }
+.gc-car-over > img.section-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.gc-car-over::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.25) 22%, rgba(7,11,26,.25) 78%, var(--night) 100%); }
+.gc-car-over > .gc-car { padding: 0; background: none; }
