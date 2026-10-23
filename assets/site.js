@@ -126,7 +126,8 @@ document.querySelectorAll('.list-form').forEach((form) => {
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.status === 'success') {
         form.classList.add('done');
-        say('Welcome to the other side. Now check your email to confirm your subscription.', true);
+        say('Welcome to the other side.', true);
+        msg.classList.add('shimmer');
       } else {
         const why = data.errors && data.errors.messages && data.errors.messages.join(' ');
         say(why || 'That didn’t go through. Please check the address and try again.', false);
