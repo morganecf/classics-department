@@ -1154,3 +1154,6 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
 .gc-closing .gc-car-over { overflow: visible; }
 .gc-closing .gc-gifts { padding-bottom: clamp(24px, 3vw, 40px); }
 @media (max-width: 760px) { .gc-closing .gc-car-over { padding: 16px 0 120px; } .gc-closing > img.section-bg { object-position: 40% 75%; } }
+/* Rapture section: the "8th day" line larger */
+.rv .rv-text p { font-size: clamp(1.45rem, 2.6vw, 2.15rem); line-height: 1.32; }
+.rv-top-right .rv-text { max-width: 34em; }
