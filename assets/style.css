@@ -1044,8 +1044,12 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
 .carousel.thirds .car-btn.next::before { transform: translate(-65%, -50%) rotate(45deg); }
 .carousel.thirds .car-btn.prev::before { transform: translate(-35%, -50%) rotate(-135deg); }
 @media (hover: none) { .carousel.thirds .car-btn { font-size: 0; } .carousel.thirds .car-btn::before { width: 11px; height: 11px; } }
-/* Contact: mailing-list box under the email button */
-.contact-list { margin-top: clamp(48px, 7vw, 88px); padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--rule); max-width: 40em; }
-.contact-list h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: .25em; }
-.contact-list p { color: var(--mist); margin: 0 0 20px; }
-.contact-list .list-form { justify-content: flex-start; }
+/* Contact: two equal halves, working with us and joining the list; stacked on phones */
+.contact-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); margin-top: clamp(24px, 4vw, 48px); }
+.contact-pair > div { border-top: 1px solid var(--rule); padding-top: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; }
+.contact-pair h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); margin-bottom: .35em; }
+.contact-pair .lede { font-size: clamp(1.2rem, 1.9vw, 1.5rem); line-height: 1.4; margin: 0 0 24px; max-width: none; }
+.contact-pair .actions, .contact-pair .list-form { margin-top: auto; }
+.contact-pair .list-form { justify-content: flex-start; flex-wrap: nowrap; }
+.contact-pair .list-form input { width: auto; flex: 1 1 auto; min-width: 0; }
+@media (max-width: 760px) { .contact-pair { grid-template-columns: 1fr; } .contact-pair .list-form { flex-wrap: wrap; } }
