@@ -26,6 +26,7 @@
   --max: 1240px;
   /* Every page's first section (photo banner or title block) is this tall, so nothing jumps between pages */
   --banner-h: clamp(460px, calc(100vh - 68px), 880px);
+  --banner-h: clamp(460px, calc(100svh - 68px), 880px);   /* svh: the height with the phone's browser bars showing, so titles at the foot of a banner are never hidden behind them */
   --gutter: clamp(16px, 4vw, 48px);
   color-scheme: dark;
 }
@@ -1101,3 +1102,27 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
   .about-head::after { background: linear-gradient(180deg, rgba(7,11,26,.55) 0%, rgba(7,11,26,.7) 40%, rgba(7,11,26,.9) 75%, var(--night) 100%); }
 }
 @media (min-width: 761px) { .about-head .lede { max-width: min(34em, 50%) !important; } }
+
+/* Herd of God: sign-up boxes centred where the Join buttons were */
+.herd-form .list-form { justify-content: center; }
+
+/* ---------- Phones ---------- */
+@media (max-width: 760px) {
+  /* Projects: each project about three-quarters of the screen, title in view */
+  .panels:not(.side-by-side) .panel, .panels:not(.side-by-side) li:first-child .panel { min-height: 0; height: 75svh; }
+  /* Upcoming: both shows on one screen */
+  .panels.side-by-side .panel.tall { min-height: 0; height: calc((100svh - 70px) / 2); }
+  .panels.side-by-side .panel .wrap { padding-bottom: 20px; }
+  .panels.side-by-side .panel h2 { font-size: clamp(1.9rem, 9vw, 2.6rem); margin-bottom: .1em; }
+  .panels.side-by-side .panel .label { margin-bottom: 4px; }
+  .panels.side-by-side .panel p:not(.label) { font-size: .72rem; letter-spacing: .1em; }
+  .panels.side-by-side .panel .btn { margin-top: 12px; padding: 9px 18px; }
+  .panels.side-by-side .panel > img.upc-art.upcoming-psychomagic-9 { object-position: 50% 30%; }
+  /* Psychomagic 9: the blue dancer shown whole, with the M.J. quote above her */
+  .photo-quote.corner { aspect-ratio: auto; height: auto; display: block; padding: 0 0 48px; overflow: visible; }
+  .photo-quote.corner > img { position: static; display: block; width: 100%; height: auto; margin: 0 0 20px; object-fit: contain; }
+  .photo-quote.corner::after { display: none; }
+  .photo-quote.corner .quote { width: 100%; }
+  /* About and Contact: plain title area, no picture */
+  .about-head > img.about-bg, .contact-head > img.contact-bg, .about-head::after, .contact-head::after { display: none; }
+}
