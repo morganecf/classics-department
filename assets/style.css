@@ -1023,3 +1023,17 @@ h1.home-title { font-family: "Cinzel", var(--font-display); font-weight: 500; te
 .list-form input:focus { outline: none; border-color: var(--gold); }
 .list-form .btn { cursor: pointer; }
 @media (max-width: 600px) { .list-form input, .list-form .btn { width: 100%; justify-content: center; } }
+/* Herd of God carousels: bigger, solid arrows that stand out on any photo, shown on phones too */
+.carousel.thirds .car-btn { width: 60px; height: 60px; font-size: 1.6rem; font-weight: 600; border: 1px solid var(--gold);
+  background: rgba(7,11,26,.88); color: var(--gold); box-shadow: 0 4px 18px rgba(0,0,0,.55); }
+.carousel.thirds .car-btn:hover { background: var(--gold); color: var(--night); }
+.carousel.thirds .car-btn.prev { left: 16px; }
+.carousel.thirds .car-btn.next { right: 16px; }
+@media (hover: none) { .carousel.thirds .car-btn { display: block; width: 46px; height: 46px; font-size: 1.3rem; } }
+/* a thick chevron instead of the thin arrow glyph */
+.carousel.thirds .car-btn { font-size: 0; }
+.carousel.thirds .car-btn::before { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px;
+  border-top: 3px solid currentColor; border-right: 3px solid currentColor; }
+.carousel.thirds .car-btn.next::before { transform: translate(-65%, -50%) rotate(45deg); }
+.carousel.thirds .car-btn.prev::before { transform: translate(-35%, -50%) rotate(-135deg); }
+@media (hover: none) { .carousel.thirds .car-btn { font-size: 0; } .carousel.thirds .car-btn::before { width: 11px; height: 11px; } }
