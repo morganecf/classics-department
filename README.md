@@ -14,7 +14,7 @@ Each page is a folder with an `index.html`, so the old Squarespace URLs keep wor
 | `/projects/` | Project index |
 | `/upcoming/` | Upcoming shows: Psychomagic 9 (New York) and The Golden Calf (San Francisco) |
 | `/psychomagic-9/` | Psychomagic 9 |
-| `/golden-calf/` | The Golden Calf |
+| `/church/` | The Herd of God (the old `/golden-calf/` address forwards here) |
 | `/p9-program/` | Psychomagic 9 cast and creative team |
 | `/406am/`, `/kinski/`, `/bet-on-love/`, `/lovebot-omega/`, `/time-capsule/` | Project pages |
 | `/services/` | Event production services |
