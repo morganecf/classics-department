@@ -1049,7 +1049,7 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
 .contact-pair > div { border-top: 1px solid var(--rule); padding-top: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; }
 .contact-pair h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); margin-bottom: .35em; }
 .contact-pair .lede { font-size: clamp(1.2rem, 1.9vw, 1.5rem); line-height: 1.4; margin: 0 0 24px; max-width: none; }
-.contact-pair .actions, .contact-pair .list-form { margin-top: auto; }
+.contact-pair .lede { margin-bottom: 20px; }
 .contact-pair .list-form { justify-content: flex-start; flex-wrap: nowrap; }
 .contact-pair .list-form input { width: auto; flex: 1 1 auto; min-width: 0; }
 @media (max-width: 760px) { .contact-pair { grid-template-columns: 1fr; } .contact-pair .list-form { flex-wrap: wrap; } }
