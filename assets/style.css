@@ -1066,9 +1066,9 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
 .contact-pair .list-form input { flex: 1 1 200px; }
 /* Contact: the LoveBot / Omega ring photo behind the whole first section, darkened like that page's banner */
 .page-head.contact-head { position: relative; isolation: isolate; overflow: hidden; }
-.contact-head > img.contact-bg { position: absolute; left: 0; right: 0; top: -12%; width: 100%; height: 112%; object-fit: cover; object-position: 32% 100%; z-index: -2; }
+.contact-head > img.contact-bg { position: absolute; left: 0; right: 0; top: -6%; width: 100%; height: 106%; object-fit: cover; object-position: 40% 100%; z-index: -2; }
 .contact-head::after { content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(180deg, rgba(7,11,26,.45) 0%, rgba(7,11,26,.35) 35%, rgba(7,11,26,.72) 62%, rgba(7,11,26,.9) 100%); }
+  background: linear-gradient(180deg, rgba(7,11,26,.45) 0%, rgba(7,11,26,.38) 35%, rgba(7,11,26,.8) 62%, rgba(7,11,26,.93) 100%); }
 @media (max-width: 760px) {
   .contact-head > img.contact-bg { object-position: 78% 0%; }
   .contact-head::after { background: linear-gradient(180deg, rgba(7,11,26,.6) 0%, rgba(7,11,26,.72) 40%, rgba(7,11,26,.9) 70%, rgba(7,11,26,.96) 100%); }
