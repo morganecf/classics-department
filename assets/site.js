@@ -114,6 +114,9 @@ document.querySelectorAll('.carousel.auto').forEach((car) => {
 // Mailing-list boxes post to Kit. The thank-you appears the moment the button is pressed while the
 // address is sent in the background; if Kit turns it down, the box comes back with Kit's reason.
 // If the background request can't be made at all, the form is submitted to Kit normally.
+// The thank-you is set in italic, which nothing else on these pages uses; fetch that face up front so the
+// line doesn't appear in a stand-in font and then shift when the real one arrives.
+if (document.querySelector('.list-form') && document.fonts) document.fonts.load('italic 500 1em "Cormorant Garamond"');
 document.querySelectorAll('.list-form').forEach((form) => {
   const msg = form.querySelector('.list-msg');
   const btn = form.querySelector('button');
