@@ -67,7 +67,7 @@ document.querySelectorAll('.carousel').forEach((car) => {
 });
 
 // Autoscrolling carousels: drift slowly to the left forever. The photos are repeated once so the
-// loop is seamless; it pauses while the pointer is over it, while it has keyboard focus, and for a few
+// loop is seamless; it keeps moving under the pointer, and pauses only while it has keyboard focus and for a few
 // seconds after a swipe or an arrow press. Off for people who ask for reduced motion.
 document.querySelectorAll('.carousel.auto').forEach((car) => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -82,10 +82,8 @@ document.querySelectorAll('.carousel.auto').forEach((car) => {
   });
   const period = () => track.children[originals.length].offsetLeft - originals[0].offsetLeft;
   const SPEED = 28; // pixels per second
-  let hover = false, holdUntil = 0, last = null, pos = 0;
+  let holdUntil = 0, last = null, pos = 0;
   const hold = (ms) => { holdUntil = performance.now() + ms; };
-  car.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hover = true; });
-  car.addEventListener('pointerleave', () => { hover = false; });
   track.addEventListener('touchstart', () => hold(4000), { passive: true });
   track.addEventListener('wheel', () => hold(3000), { passive: true });
   car.querySelectorAll('.car-btn').forEach((b) => b.addEventListener('click', () => hold(3000)));
@@ -98,7 +96,7 @@ document.querySelectorAll('.carousel.auto').forEach((car) => {
   }, { passive: true });
   const step = (t) => {
     // keyboard focus inside pauses it; a mouse click on an arrow does not
-    const moving = !hover && !car.querySelector(':focus-visible') && t >= holdUntil;
+    const moving = !car.querySelector(':focus-visible') && t >= holdUntil;
     if (moving && last !== null) {
       pos += SPEED * (t - last) / 1000;
       const p = period();
@@ -111,4 +109,14 @@ document.querySelectorAll('.carousel.auto').forEach((car) => {
     requestAnimationFrame(step);
   };
   requestAnimationFrame(step);
+});
+
+// Mailing-list box: until a mailing service is connected, it opens an email to us with the address filled in.
+document.querySelectorAll('.list-form').forEach((form) => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = form.querySelector('input[type=email]').value.trim();
+    const to = form.dataset.mailto;
+    location.href = `mailto:${to}?subject=${encodeURIComponent('Add me to the mailing list')}&body=${encodeURIComponent('Please add ' + email + ' to The Classics Department mailing list.')}`;
+  });
 });

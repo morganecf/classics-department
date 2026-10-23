@@ -14,6 +14,7 @@
   <meta name="theme-color" content="#070b1a">
   <link rel="canonical" href="https://www.classics-department.com/">
   <link rel="icon" href="./favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Imperial+Script&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -38,7 +39,7 @@
 <section class="hero">
   <img src="./assets/img/golden-calf-08.webp" alt="A performer bowed beneath shafts of stage light in The Golden Calf." width="1200" height="800" srcset="./assets/img/golden-calf-08.webp 1200w, ./assets/img/golden-calf-08-full.webp 2500w" sizes="100vw" class="head-in" fetchpriority="high">
   <div class="wrap">
-    <h1>The Classics<br>Department</h1>
+    <h1 class="home-title" aria-label="The Classics Department"><span aria-hidden="true">the Classics<br>Department</span></h1>
     <p class="tagline">Events from beyond the veil</p>
   </div>
 </section>
@@ -74,7 +75,11 @@
   <img src="./assets/img/741d5380-pmweb-404.webp" alt="" width="1500" height="1000" class="cta-bg" loading="lazy" decoding="async">
   <div class="wrap">
     <h2 class="cta-line">We have more madness in the making&hellip;</h2>
-    <div class="actions"><a class="btn" href="./contact/"><span>Join the list</span></a></div>
+    <form class="list-form" action="/contact/" data-mailto="classicsdept@proton.me">
+      <label class="visually-hidden" for="list-email">Email address</label>
+      <input id="list-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required>
+      <button class="btn" type="submit"><span>Join the list</span></button>
+    </form>
   </div>
 </section>
 </main>
