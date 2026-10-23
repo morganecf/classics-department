@@ -54,13 +54,61 @@ document.querySelectorAll('.carousel').forEach((car) => {
   const prev = car.querySelector('.prev');
   const next = car.querySelector('.next');
   const update = () => {
+    if (car.classList.contains('auto')) return;
     prev.disabled = track.scrollLeft <= 2;
     next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
   };
-  prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.8 }));
-  next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.8 }));
+  prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' }));
   track.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
   track.querySelectorAll('img').forEach((i) => i.addEventListener('load', update));
   update();
+});
+
+// Autoscrolling carousels: drift slowly to the left forever. The photos are repeated once so the
+// loop is seamless; it pauses while the pointer is over it, while it has keyboard focus, and for a few
+// seconds after a swipe or an arrow press. Off for people who ask for reduced motion.
+document.querySelectorAll('.carousel.auto').forEach((car) => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const track = car.querySelector('.track');
+  const originals = [...track.children];
+  originals.forEach((a) => {
+    const copy = a.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.tabIndex = -1;
+    copy.addEventListener('click', (e) => { e.preventDefault(); a.click(); });
+    track.appendChild(copy);
+  });
+  const period = () => track.children[originals.length].offsetLeft - originals[0].offsetLeft;
+  const SPEED = 28; // pixels per second
+  let hover = false, holdUntil = 0, last = null, pos = 0;
+  const hold = (ms) => { holdUntil = performance.now() + ms; };
+  car.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hover = true; });
+  car.addEventListener('pointerleave', () => { hover = false; });
+  track.addEventListener('touchstart', () => hold(4000), { passive: true });
+  track.addEventListener('wheel', () => hold(3000), { passive: true });
+  car.querySelectorAll('.car-btn').forEach((b) => b.addEventListener('click', () => hold(3000)));
+  car.querySelector('.prev').addEventListener('click', () => {
+    if (track.scrollLeft < track.clientWidth) track.scrollLeft += period();
+  }, { capture: true });
+  track.addEventListener('scroll', () => {
+    const p = period();
+    if (track.scrollLeft >= p) track.scrollLeft -= p;
+  }, { passive: true });
+  const step = (t) => {
+    // keyboard focus inside pauses it; a mouse click on an arrow does not
+    const moving = !hover && !car.querySelector(':focus-visible') && t >= holdUntil;
+    if (moving && last !== null) {
+      pos += SPEED * (t - last) / 1000;
+      const p = period();
+      if (pos >= p) pos -= p;
+      track.scrollLeft = pos;
+    } else {
+      pos = track.scrollLeft;
+    }
+    last = t;
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
 });
