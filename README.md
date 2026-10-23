@@ -41,4 +41,6 @@ python3 -m http.server 8000
 
 Hosted on GitHub Pages: Settings → Pages → Deploy from a branch → `main`, folder `/ (root)`. Each push to `main` goes live in about a minute.
 
+The custom domain is set by the `CNAME` file (`www.classics-department.com`). DNS: four A records on the bare domain to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, and a CNAME record for `www` pointing to `morganecf.github.io`.
+
 It also runs unchanged on Cloudflare Pages or Netlify (no build command, output directory `/`).
