@@ -981,15 +981,20 @@ a.name-link:hover { color: var(--gold-lit); }
 
 /* Home: closing call centred over the howling girl, photo shown as it is with a light film grain */
 .home-cta { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: start; justify-items: center; text-align: center;
-  aspect-ratio: 3 / 2; padding: 0; }
-.home-cta > .cta-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  --w: min(100vw, 940px); height: calc(var(--w) * 2 / 3 * .96 - 100px + clamp(48px, 7vw, 96px)); min-height: 440px; padding: 0;
+  /* the photo's own charcoal (#111) behind it, melting into the page navy at the top and bottom */
+  background: linear-gradient(180deg, var(--night) 0%, #111 16%, #111 78%, var(--night) 100%); }
+.home-cta > .cta-bg { position: absolute; left: 50%; top: calc(clamp(48px, 7vw, 96px) - var(--w) * 0.04); width: var(--w); height: auto; transform: translateX(-50%); z-index: -2;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%), linear-gradient(180deg, transparent 0, #000 14%, #000 80%, transparent 100%);
+  -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%), linear-gradient(180deg, transparent 0, #000 14%, #000 80%, transparent 100%);
+  mask-composite: intersect; }
 .home-cta::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .14; mix-blend-mode: overlay;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E") 0 0 / 200px 200px; }
 .home-cta .wrap { width: 100%; padding-top: clamp(48px, 7vw, 96px); }
 .home-cta h2.cta-line { font-family: var(--font-display); font-weight: 500; text-transform: none; letter-spacing: 0; color: #fff;
   font-size: clamp(1.5rem, 3.2vw, 2.8rem); line-height: 1.15; margin: 0 0 .8em; text-shadow: 0 2px 20px rgba(0,0,0,.55); }
 .home-cta .actions { justify-content: center; margin-top: 0; }
-@media (max-width: 600px) { .home-cta { aspect-ratio: auto; min-height: 420px; } }
+@media (max-width: 600px) { .home-cta { --w: 130vw; height: auto; min-height: 500px; } .home-cta > .cta-bg { top: 210px; } }
 
 /* Herd of God: the Rapture title as the section's headline */
 .rapture-head { padding: clamp(48px, 7vw, 96px) 0 clamp(24px, 3vw, 40px); }
