@@ -1059,7 +1059,7 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
 .list-form .list-msg.ok { color: var(--bone); }
 .list-form .list-msg.err { color: #f2a08a; }
 .list-form.done input, .list-form.done .btn { display: none; }
-.list-form.done .list-msg { font-family: var(--font-display); font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
+.list-form.done .list-msg { font-family: var(--font-display); font-style: italic; font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
 .signup-page-form { margin-top: 28px; }
 .signup-page-form .list-form { justify-content: center; }
 .contact-pair .list-form { flex-wrap: wrap; }
