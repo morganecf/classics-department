@@ -936,7 +936,7 @@ a.name-link:hover { color: var(--gold-lit); }
 /* ---------- Golden Calf: Rapture section, full-width photo with the title over its dark side ---------- */
 .rv { position: relative; isolation: isolate; overflow: hidden; padding: 0; }
 .rv .rv-text h2 { margin: 0 0 .5em; font-size: clamp(1.7rem, 3.4vw, 2.8rem); text-transform: uppercase; letter-spacing: .04em; line-height: 1.1; }
-.rv .rv-text p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.15rem, 1.8vw, 1.45rem); line-height: 1.45; color: var(--bone); margin: 0; text-shadow: 0 1px 10px rgba(0,0,0,.7); }
+.rv .rv-text p { font-family: var(--font-display); font-style: normal; font-weight: 500; font-size: clamp(1.15rem, 1.8vw, 1.45rem); line-height: 1.45; color: var(--bone); margin: 0; text-shadow: 0 1px 10px rgba(0,0,0,.7); }
 .rv-bleed { display: flex; height: min(calc(100vw / var(--ar)), 92vh); min-height: 520px; }
 .rv-bleed > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .rv-bleed::after { content: ""; position: absolute; inset: 0; z-index: -1; }
@@ -980,14 +980,14 @@ a.name-link:hover { color: var(--gold-lit); }
 .carousel.auto .track { scroll-snap-type: none; scroll-behavior: auto; }
 
 /* Home: closing call centred over the howling girl, photo shown as it is with a light film grain */
-.home-cta { position: relative; isolation: isolate; overflow: hidden; display: grid; place-items: center; text-align: center;
+.home-cta { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: start; justify-items: center; text-align: center;
   aspect-ratio: 3 / 2; padding: 0; }
 .home-cta > .cta-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .home-cta::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .14; mix-blend-mode: overlay;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E") 0 0 / 200px 200px; }
-.home-cta .wrap { width: 100%; }
+.home-cta .wrap { width: 100%; padding-top: clamp(48px, 7vw, 96px); }
 .home-cta h2.cta-line { font-family: var(--font-display); font-weight: 500; text-transform: none; letter-spacing: 0; color: #fff;
-  font-size: clamp(1.7rem, 4.6vw, 4.2rem); line-height: 1.15; margin: 0 0 .5em; text-shadow: 0 2px 20px rgba(0,0,0,.55); }
+  font-size: clamp(1.5rem, 3.2vw, 2.8rem); line-height: 1.15; margin: 0 0 .8em; text-shadow: 0 2px 20px rgba(0,0,0,.55); }
 .home-cta .actions { justify-content: center; margin-top: 0; }
 @media (max-width: 600px) { .home-cta { aspect-ratio: auto; min-height: 420px; } }
 
@@ -1008,3 +1008,18 @@ h1.one-line-title { white-space: nowrap; font-size: min(clamp(2.6rem, 8.2vw, 7.2
 @media (max-width: 760px) {
   .page-head.about-head, .page-head.contact-head { min-height: 0; align-content: start; padding-top: 40px; }
 }
+
+/* Front-page title only: Cinzel, a Roman-inscription serif with a faint occult air (self-hosted, SIL OFL).
+   Cinzel has no lowercase; lowercase letters come out as small capitals, so writing "the Classics Department"
+   leaves the C and the D as the only full-height letters. */
+@font-face { font-family: "Cinzel"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("fonts/cinzel-500-latin.woff2") format("woff2"); }
+h1.home-title { font-family: "Cinzel", var(--font-display); font-weight: 500; text-transform: none; letter-spacing: -.01em; line-height: 1; }
+/* Front page: email box beside the Join button */
+.list-form { display: flex; justify-content: center; align-items: stretch; gap: 10px; flex-wrap: wrap; }
+.list-form input { width: min(320px, 100%); padding: 0 18px; min-height: 48px; border: 1px solid rgba(242,236,224,.45); border-radius: 0;
+  background: rgba(7,11,26,.55); color: var(--bone); font: inherit; font-size: 1rem; }
+.list-form input::placeholder { color: rgba(242,236,224,.6); }
+.list-form input:focus { outline: none; border-color: var(--gold); }
+.list-form .btn { cursor: pointer; }
+@media (max-width: 600px) { .list-form input, .list-form .btn { width: 100%; justify-content: center; } }
