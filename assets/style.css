@@ -992,7 +992,9 @@ a.name-link:hover { color: var(--gold-lit); }
 @media (max-width: 600px) { .home-cta { aspect-ratio: auto; min-height: 420px; } }
 
 /* Herd of God: the Rapture title as the section's headline */
-.rv .rv-text h2.rapture-title { font-size: clamp(2.6rem, 6vw, 5.6rem); line-height: .98; letter-spacing: .02em; margin-bottom: .35em; }
+.rapture-head { padding: clamp(48px, 7vw, 96px) 0 clamp(24px, 3vw, 40px); }
+.rapture-head h2.rapture-title { font-size: clamp(2.6rem, 6vw, 5.6rem); line-height: .98; letter-spacing: .02em; text-transform: uppercase; margin: 0; }
+.rapture-head + .rv-bleed .wrap { padding-top: clamp(40px, 5vw, 72px); }
 .rv-top-right .rv-text { max-width: 30em; }
 
 /* Services: one-line title; plain "Don't see what you want" with the wishlist in a callout */
