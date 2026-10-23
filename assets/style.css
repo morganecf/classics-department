@@ -20,8 +20,8 @@
   --alien: #9cc4ff;        /* secondary accent: pale blue */
 
   --font-display: "Cormorant Garamond", "Cormorant", Garamond, Georgia, serif;
-  --font-label: "Josefin Sans", "Futura", "Century Gothic", sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-label: "Tenor Sans", "Optima", "Gill Sans", sans-serif;
+  --font-body: "Alegreya Sans", "Gill Sans", "Optima", system-ui, sans-serif;
 
   --max: 1240px;
   /* Every page's first section (photo banner or title block) is this tall, so nothing jumps between pages */
@@ -40,8 +40,8 @@ body {
   background: var(--night);
   color: var(--bone);
   font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 18px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -118,7 +118,7 @@ section { padding: clamp(64px, 10vw, 128px) 0; }
   transition: background .2s, color .2s, border-color .2s;
 }
 .btn { border: 1px solid transparent; border-image: linear-gradient(105deg, #b48530, #f3dc98 25%, #c99b42 45%, #fbe9b0 60%, #a97c2e) 1;
-  color: var(--gold); background: transparent; font-weight: 600; transition: background-color .3s; }
+  color: var(--gold); background: transparent; font-weight: 400; transition: background-color .3s; }
 .btn > span { background: var(--leaf); background-size: 140px 140px, 100% 100%;
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 /* hover: the body takes on a very faint dark lavender */
@@ -798,10 +798,10 @@ a.name-link:hover { color: var(--gold-lit); }
 .cpanel h3 { font-size: clamp(1.6rem, 2.6vw, 2.4rem); text-transform: uppercase; letter-spacing: .03em; margin: 0; }
 .cpanel .caption { position: absolute; top: -3px; left: -3px; max-width: calc(100% - 20px);
   background: var(--bone); color: var(--night); padding: 5px 10px 4px;
-  font-family: var(--font-label); font-weight: 600; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; line-height: 1.35; }
+  font-family: var(--font-label); font-weight: 400; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; line-height: 1.35; }
 .cpanel-title { justify-content: center; background: var(--gold); border-color: var(--gold);
   background: radial-gradient(rgba(7,11,26,.18) 1.1px, transparent 1.6px) 0 0 / 7px 7px, var(--leaf); background-size: 7px 7px, 140px 140px, 100% 100%; }
-.cpanel-title h2 { color: var(--night); font-family: var(--font-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em;
+.cpanel-title h2 { color: var(--night); font-family: var(--font-label); font-weight: 400; text-transform: uppercase; letter-spacing: .06em;
   font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1; margin: 0; }
 .cpanel-wide { grid-column: 1 / -1; min-height: 0; padding: 40px 22px 18px; transform: rotate(-.25deg); }
 .cpanel-wide p { margin: 0; font-family: var(--font-display); font-size: clamp(1.25rem, 2.2vw, 1.8rem); line-height: 1.3; }
