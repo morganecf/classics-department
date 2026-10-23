@@ -1073,3 +1073,13 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
   .contact-head > img.contact-bg { object-position: 78% 0%; }
   .contact-head::after { background: linear-gradient(180deg, rgba(7,11,26,.6) 0%, rgba(7,11,26,.72) 40%, rgba(7,11,26,.9) 70%, rgba(7,11,26,.96) 100%); }
 }
+/* thank-you line: a slow wave of white light passing through the words, with a few glints */
+.list-form .list-msg.shimmer { flex: 0 0 auto; width: fit-content; max-width: 100%; position: relative; color: transparent; -webkit-text-fill-color: transparent; font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  background: linear-gradient(100deg, #b9bfd8 0%, #b9bfd8 35%, #ffffff 45%, #fff8e6 50%, #ffffff 55%, #b9bfd8 65%, #b9bfd8 100%);
+  background-size: 250% 100%; -webkit-background-clip: text; background-clip: text;
+  animation: shimmer-wave 4.5s ease-in-out infinite; filter: drop-shadow(0 0 6px rgba(255,255,255,.18)); }
+.list-form .list-msg.shimmer::after { content: "✦  ·  ✧"; position: absolute; left: 50%; top: -1.1em; transform: translateX(-50%); font-style: normal;
+  font-size: .55em; letter-spacing: .6em; color: #fff; -webkit-text-fill-color: #fff; opacity: 0; animation: glints 4.5s ease-in-out infinite; pointer-events: none; }
+@keyframes shimmer-wave { 0% { background-position: 100% 0; } 100% { background-position: 0% 0; } }
+@keyframes glints { 0%, 30%, 100% { opacity: 0; } 45% { opacity: .85; } 60% { opacity: .2; } 70% { opacity: .6; } }
+@media (prefers-reduced-motion: reduce) { .list-form .list-msg.shimmer { animation: none; color: var(--bone); -webkit-text-fill-color: currentColor; background: none; } .list-form .list-msg.shimmer::after { display: none; } }
