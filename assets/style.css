@@ -1044,3 +1044,8 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
 .carousel.thirds .car-btn.next::before { transform: translate(-65%, -50%) rotate(45deg); }
 .carousel.thirds .car-btn.prev::before { transform: translate(-35%, -50%) rotate(-135deg); }
 @media (hover: none) { .carousel.thirds .car-btn { font-size: 0; } .carousel.thirds .car-btn::before { width: 11px; height: 11px; } }
+/* Contact: mailing-list box under the email button */
+.contact-list { margin-top: clamp(48px, 7vw, 88px); padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--rule); max-width: 40em; }
+.contact-list h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: .25em; }
+.contact-list p { color: var(--mist); margin: 0 0 20px; }
+.contact-list .list-form { justify-content: flex-start; }
