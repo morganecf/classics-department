@@ -1139,3 +1139,8 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
   background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,0) 12%, rgba(7,11,26,0) 88%, var(--night) 100%); }
 .gc-car-over > .gc-car { padding: 0; background: none; }
 @media (max-width: 760px) { .gc-car-over { padding: 120px 0; } .gc-car-over .carousel.thirds { --car-h: 150px; } .gc-car-over > img.section-bg { object-position: 40% 80%; } }
+/* the purple photo rises up behind the invitation and sign-up box */
+.gc-gifts { position: relative; z-index: 1; }
+.gc-car-over { margin-top: clamp(-280px, -18vw, -160px); padding-top: calc(clamp(160px, 18vw, 280px) + clamp(48px, 6vw, 88px)); }
+.gc-car-over::after { background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.55) 12%, rgba(7,11,26,0) 30%, rgba(7,11,26,0) 88%, var(--night) 100%); }
+@media (max-width: 760px) { .gc-car-over { margin-top: -170px; padding-top: 230px; } .gc-car-over > img.section-bg { object-position: 40% 70%; } }
