@@ -532,7 +532,7 @@ section.flush { padding: 0; }
 .big-line { text-align: center; }
 .signup.photo-band.v-bottom.big-line { min-height: calc(min(86vh, 820px) - 50px); }
 .big-line > .band-bg { top: -50px; height: calc(100% + 50px); }
-.big-line .script.one-line { font-size: calc((min(100vw, var(--max)) - 2 * var(--gutter)) / 11.8); line-height: 1.25; filter: none;
+.home-cta .script.cta-line, .big-line .script.one-line { font-size: calc((min(100vw, var(--max)) - 2 * var(--gutter)) / 11.8); line-height: 1.25; filter: none;
   color: #b1201d;
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .02 0 0 0 0 .02 0 0 0 2.4 -1.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 120px 120px,
@@ -779,13 +779,8 @@ a.name-link:hover { color: var(--gold-lit); }
 
 /* Upcoming: illustrated Golden Calf panel; deeper shade at the bottom so the title reads on the bright art */
 .panel > img.upc-art { object-position: 50% 62%; }
-/* Psychomagic 9: the top of the hat (26.8% down the 2:3 art) touches the top of the panel on every screen.
-   The art keeps its own shape, is wide enough that the part below the hat still fills the panel,
-   and is shifted up by 26.8% of its own height. */
-.panel > img.upc-art.upcoming-psychomagic-9 { top: 0; bottom: auto; left: 50%; right: auto; height: auto;
-  width: max(100%, calc(var(--banner-h) / (0.732 * 1.5))); max-width: none; object-fit: fill;
-  transform-origin: 50% 26.8%; transform: translate(-50%, -26.8%); }
-.panel:hover > img.upc-art.upcoming-psychomagic-9 { transform: translate(-50%, -26.8%) scale(1.03); }
+/* Psychomagic 9: the poster art, cropped to its picture so no lettering can show */
+.panel > img.upc-art.upcoming-psychomagic-9 { object-position: 50% 30%; }
 .panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 30%, rgba(7,11,26,.55) 58%, rgba(7,11,26,.94) 100%); }
 .panel:has(> img.upc-art)::after { background: linear-gradient(180deg, rgba(7,11,26,0) 18%, rgba(7,11,26,.5) 42%, rgba(7,11,26,.88) 62%, rgba(7,11,26,.96) 100%) !important; }
 
@@ -978,14 +973,35 @@ a.name-link:hover { color: var(--gold-lit); }
 .gc-car { padding-bottom: clamp(40px, 6vw, 80px); }
 .gc-car + .gc-waiting { padding-top: clamp(16px, 2vw, 28px); }
 
-/* About banner: a thin, skeletal oxblood rose that draws itself, then sways */
-.about-head { position: relative; isolation: isolate; overflow: hidden; }
-.about-head > .wrap { position: relative; z-index: 1; }
-.rose { position: absolute; left: max(8px, calc(var(--gutter) - 26px)); top: clamp(16px, 4vh, 40px); height: clamp(150px, 24vh, 300px); width: auto; z-index: 0;
-  overflow: visible; fill: none; stroke: #9b2232; stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round;
-  filter: drop-shadow(0 0 6px rgba(155, 34, 50, .35)); }
-.rose path { vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; animation: rose-draw 2.4s cubic-bezier(.6, .1, .3, 1) var(--d) forwards; }
-.rose-sway { transform-origin: 78px 352px; transform-box: view-box; animation: rose-sway 9s ease-in-out 4s infinite; }
-@keyframes rose-draw { to { stroke-dashoffset: 0; } }
-@keyframes rose-sway { 0%, 100% { transform: rotate(0deg); } 30% { transform: rotate(2.2deg); } 70% { transform: rotate(-1.6deg); } }
-@media (prefers-reduced-motion: reduce) { .rose path { animation: none; stroke-dashoffset: 0; } .rose-sway { animation: none; } }
+
+/* Home: a smaller carousel that drifts on its own */
+.carousel.home { --car-h: min(54vh, 500px); }
+@media (max-width: 600px) { .carousel.home { --car-h: 300px; } }
+.carousel.auto .track { scroll-snap-type: none; scroll-behavior: auto; }
+
+/* Home: closing call over the howling girl, set like the other photo sections */
+.home-cta { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: end;
+  min-height: min(calc(100vw * 2 / 3), 92vh); padding: 0; }
+.home-cta > .cta-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; z-index: -2; }
+.home-cta::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,0) 18%, rgba(7,11,26,.1) 42%, rgba(7,11,26,.82) 70%, var(--night) 100%); }
+.home-cta .wrap { width: 100%; padding-bottom: clamp(48px, 8vw, 96px); }
+.home-cta .script.cta-line { font-size: clamp(2.4rem, 6vw, 5.4rem); line-height: 1.15; margin: 0 0 .35em; white-space: normal; }
+.home-cta .actions { margin-top: 0; }
+@media (max-width: 600px) { .home-cta { min-height: 560px; } .home-cta > .cta-bg { object-position: 50% 0%; height: 78%; -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent); mask-image: linear-gradient(180deg, #000 70%, transparent); } }
+
+/* Herd of God: the Rapture title as the section's headline */
+.rv .rv-text h2.rapture-title { font-size: clamp(2.6rem, 6vw, 5.6rem); line-height: .98; letter-spacing: .02em; margin-bottom: .35em; }
+.rv-top-right .rv-text { max-width: 30em; }
+
+/* Services: one-line title; plain "Don't see what you want" with the wishlist in a callout */
+h1.one-line-title { white-space: nowrap; font-size: min(clamp(2.6rem, 8.2vw, 7.2rem), calc((min(100vw, var(--max)) - 2 * var(--gutter)) / 15.6)); }
+.callout { border: 1px solid var(--rule); border-radius: 4px; background: var(--night-2); padding: clamp(24px, 3.5vw, 44px); }
+.callout h3 { font-family: var(--font-display); font-weight: 500; font-style: italic; text-transform: none; letter-spacing: 0;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem); color: var(--bone); margin: 0; }
+.callout .wishlist { margin-top: 16px; }
+
+/* About and Contact: on phones the heading sits near the top instead of at the foot of a full-height banner */
+@media (max-width: 760px) {
+  .page-head.about-head, .page-head.contact-head { min-height: 0; align-content: start; padding-top: 40px; }
+}
