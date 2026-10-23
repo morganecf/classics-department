@@ -1009,11 +1009,14 @@ h1.one-line-title { white-space: nowrap; font-size: min(clamp(2.6rem, 8.2vw, 7.2
   .page-head.about-head, .page-head.contact-head { min-height: 0; align-content: start; padding-top: 40px; }
 }
 
-/* Front-page title only: Almendra SC, a small-caps serif with calligraphic, slightly gothic flourishes (self-hosted, SIL OFL).
-   Lowercase letters come out as small capitals, so writing "the Classics Department" leaves the C and the D full height. */
-@font-face { font-family: "Almendra SC"; font-style: normal; font-weight: 400; font-display: swap;
-  src: url("fonts/almendra-sc-400-latin.woff2") format("woff2"); }
-h1.home-title { font-family: "Almendra SC", var(--font-display); font-weight: 400; text-transform: none; letter-spacing: -.005em; word-spacing: .08em; line-height: 1; }
+/* Front-page title only: Cinzel Decorative, Roman capitals with playful swashes (self-hosted, SIL OFL).
+   Its lowercase letters are plain capitals and its capitals are the swash forms, so the C and the D are typed
+   as capitals (the flourished ones) and set a little larger than the rest. */
+@font-face { font-family: "Cinzel Decorative"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("fonts/cinzel-decorative-400-latin.woff2") format("woff2"); }
+h1.home-title { font-family: "Cinzel Decorative", var(--font-display); font-weight: 400; text-transform: none;
+  font-variant-ligatures: none; letter-spacing: -.01em; line-height: 1.02; }
+h1.home-title .big { font-size: 1.3em; line-height: 0; }
 /* Front page: email box beside the Join button */
 .list-form { display: flex; justify-content: center; align-items: stretch; gap: 10px; flex-wrap: wrap; }
 .list-form input { width: min(320px, 100%); padding: 0 18px; min-height: 48px; border: 1px solid rgba(242,236,224,.45); border-radius: 0;
