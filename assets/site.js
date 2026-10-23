@@ -111,12 +111,29 @@ document.querySelectorAll('.carousel.auto').forEach((car) => {
   requestAnimationFrame(step);
 });
 
-// Mailing-list box: until a mailing service is connected, it opens an email to us with the address filled in.
+// Mailing-list boxes post to Kit. Sent in the background so visitors stay on the page and see the
+// thank-you in place; if the background request can't be made, the form is submitted to Kit normally.
 document.querySelectorAll('.list-form').forEach((form) => {
-  form.addEventListener('submit', (e) => {
+  const msg = form.querySelector('.list-msg');
+  const btn = form.querySelector('button');
+  const say = (text, ok) => { msg.textContent = text; msg.classList.toggle('ok', ok); msg.classList.toggle('err', !ok); };
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = form.querySelector('input[type=email]').value.trim();
-    const to = form.dataset.mailto;
-    location.href = `mailto:${to}?subject=${encodeURIComponent('Add me to the mailing list')}&body=${encodeURIComponent('Please add ' + email + ' to The Classics Department mailing list.')}`;
+    btn.disabled = true;
+    say('Sending…', true);
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.status === 'success') {
+        form.classList.add('done');
+        say('Welcome to the other side. Now check your email to confirm your subscription.', true);
+      } else {
+        const why = data.errors && data.errors.messages && data.errors.messages.join(' ');
+        say(why || 'That didn’t go through. Please check the address and try again.', false);
+        btn.disabled = false;
+      }
+    } catch (err) {
+      form.submit();   // couldn't reach Kit in the background: let the browser post it instead
+    }
   });
 });

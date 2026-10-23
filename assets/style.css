@@ -1053,3 +1053,14 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
 .contact-pair .list-form { justify-content: flex-start; flex-wrap: nowrap; }
 .contact-pair .list-form input { width: auto; flex: 1 1 auto; min-width: 0; }
 @media (max-width: 760px) { .contact-pair { grid-template-columns: 1fr; } .contact-pair .list-form { flex-wrap: wrap; } }
+/* sign-up feedback */
+.list-form .list-msg { flex: 1 0 100%; margin: 6px 0 0; min-height: 0; font-size: 1rem; text-align: inherit; }
+.list-form .list-msg:empty { display: none; }
+.list-form .list-msg.ok { color: var(--bone); }
+.list-form .list-msg.err { color: #f2a08a; }
+.list-form.done input, .list-form.done .btn { display: none; }
+.list-form.done .list-msg { font-family: var(--font-display); font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
+.signup-page-form { margin-top: 28px; }
+.signup-page-form .list-form { justify-content: center; }
+.contact-pair .list-form { flex-wrap: wrap; }
+.contact-pair .list-form input { flex: 1 1 200px; }
