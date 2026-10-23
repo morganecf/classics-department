@@ -111,25 +111,27 @@ document.querySelectorAll('.carousel.auto').forEach((car) => {
   requestAnimationFrame(step);
 });
 
-// Mailing-list boxes post to Kit. Sent in the background so visitors stay on the page and see the
-// thank-you in place; if the background request can't be made, the form is submitted to Kit normally.
+// Mailing-list boxes post to Kit. The thank-you appears the moment the button is pressed while the
+// address is sent in the background; if Kit turns it down, the box comes back with Kit's reason.
+// If the background request can't be made at all, the form is submitted to Kit normally.
 document.querySelectorAll('.list-form').forEach((form) => {
   const msg = form.querySelector('.list-msg');
   const btn = form.querySelector('button');
   const say = (text, ok) => { msg.textContent = text; msg.classList.toggle('ok', ok); msg.classList.toggle('err', !ok); };
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const body = new FormData(form);
     btn.disabled = true;
-    say('Sending…', true);
+    form.classList.add('done');
+    say('Welcome to the other side.', true);
+    msg.classList.add('shimmer');
     try {
-      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const res = await fetch(form.action, { method: 'POST', body, headers: { Accept: 'application/json' } });
       const data = await res.json().catch(() => ({}));
-      if (res.ok && data.status === 'success') {
-        form.classList.add('done');
-        say('Welcome to the other side.', true);
-        msg.classList.add('shimmer');
-      } else {
+      if (!(res.ok && data.status === 'success')) {
         const why = data.errors && data.errors.messages && data.errors.messages.join(' ');
+        form.classList.remove('done');
+        msg.classList.remove('shimmer');
         say(why || 'That didn’t go through. Please check the address and try again.', false);
         btn.disabled = false;
       }
