@@ -1157,3 +1157,14 @@ h1.home-title .big { font-size: 1.3em; line-height: 0; }
 /* Rapture section: the "8th day" line larger */
 .rv .rv-text p { font-size: clamp(1.45rem, 2.6vw, 2.15rem); line-height: 1.32; }
 .rv-top-right .rv-text { max-width: 34em; }
+/* Rapture: a quieter paragraph under the 8th day line */
+.rv .rv-text p.rv-small { font-size: clamp(1.05rem, 1.45vw, 1.25rem); line-height: 1.5; margin-top: 1.1em; color: var(--bone); opacity: .9; }
+/* the invitation now sits under the call, over the girl in white */
+.gc-centered p.gc-call-sub { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.25rem, 2.2vw, 1.8rem); line-height: 1.35; color: var(--bone);
+  max-width: 28em; margin: .8em auto 0; text-wrap: balance; text-shadow: 0 2px 18px rgba(0,0,0,.7); }
+.gc-closing > .gc-car-over:first-of-type { padding-top: clamp(64px, 8vw, 112px); }
+@media (min-width: 761px) {
+  .rv-top-right::after { background: linear-gradient(180deg, var(--night) 0%, rgba(7,11,26,.5) 22%, rgba(7,11,26,0) 50%),
+    radial-gradient(ellipse 52% 46% at 78% 22%, rgba(7,11,26,.8) 0%, rgba(7,11,26,.55) 55%, rgba(7,11,26,0) 100%); }
+  .rv .rv-text p.rv-small { text-shadow: 0 1px 8px rgba(0,0,0,.9); }
+}
